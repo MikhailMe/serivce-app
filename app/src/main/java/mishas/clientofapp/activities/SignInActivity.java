@@ -1,8 +1,6 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import mishas.clientofapp.R;
-import mishas.clientofapp.logic.DBHelper;
+import mishas.clientofapp.logic.Administrator;
+import mishas.clientofapp.logic.User;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -19,13 +18,13 @@ public class SignInActivity extends AppCompatActivity {
     private EditText passwordTxt;
     private Button signIn;
 
-    private DBHelper dbHelper;
+    //private DBHelper dbHelper;
 
     private void init() {
         loginTxt = (EditText) findViewById(R.id.loginTxtIn);
         passwordTxt = (EditText) findViewById(R.id.passwordTxtIn);
         signIn = (Button) findViewById(R.id.letsSignIn);
-        dbHelper = new DBHelper(this);
+        //dbHelper = new DBHelper(this);
     }
 
     @Override
@@ -36,13 +35,25 @@ public class SignInActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SQLiteDatabase database = dbHelper.getReadableDatabase();
-                Cursor cursor = database.query(DBHelper.TABLE_CLIENTS, null, null, null, null, null, null);
+                /*SQLiteDatabase database = dbHelper.getReadableDatabase();
+                String[] projection = {DBHelper.KEY_ID, DBHelper.KEY_LOGIN, DBHelper.KEY_PASSWORD,
+                                       DBHelper.KEY_EMAIL, DBHelper.KEY_NAME, DBHelper.KEY_SURNAME,
+                                       DBHelper.KEY_AGE};
+                Cursor cursor = database.query(DBHelper.TABLE_CLIENTS, projection, null, null, null, null, null);*/
                 boolean isRegistered = false;
                 String login = loginTxt.getText().toString();
                 String password = passwordTxt.getText().toString();
-                int loginIndex = cursor.getColumnIndex(DBHelper.KEY_LOGIN);
+
+                for (User user : Administrator.users){
+                    if (login.equals(user.getLogin()) && password.equals(user.getPassword())){
+                        isRegistered = true;
+                        break;
+                    }
+                }
+
+                /*int loginIndex = cursor.getColumnIndex(DBHelper.KEY_LOGIN);
                 int passwordIndex = cursor.getColumnIndex(DBHelper.KEY_PASSWORD);
+                cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     if (cursor.getString(loginIndex).equals(login) &&
                             cursor.getString(passwordIndex).equals(password)) {
@@ -50,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
                         break;
                     }
                 }
-                cursor.close();
+                cursor.close();*/
                 if (isRegistered) {
                     startActivity(new Intent(SignInActivity.this, MainScreenActivity.class));
                 } else {
@@ -60,7 +71,7 @@ public class SignInActivity extends AppCompatActivity {
                             "Login/Password does not correct. Please try again",
                             Toast.LENGTH_SHORT).show();
                 }
-                dbHelper.close();
+                //dbHelper.close();
 
                 // достать из бд логин/пароль и проверить есть ли такой пользователь
                 // если есть, то на MainScreenActivity

@@ -8,13 +8,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import mishas.clientofapp.R;
+import mishas.clientofapp.logic.Administrator;
+import mishas.clientofapp.logic.BagOfOrders;
 
 public class StartActivity extends AppCompatActivity implements OnClickListener {
 
+    private Administrator admin;
+    private BagOfOrders bag;
     private Button signIn;
     private Button signUp;
 
-    private void initButtons() {
+    private void init() {
+        admin = Administrator.getInstance();
+        bag = BagOfOrders.getInstance();
         signIn = (Button) findViewById(R.id.signIn);
         signUp = (Button) findViewById(R.id.signUp);
     }
@@ -23,7 +29,7 @@ public class StartActivity extends AppCompatActivity implements OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        initButtons();
+        init();
         signIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
     }
@@ -45,7 +51,7 @@ public class StartActivity extends AppCompatActivity implements OnClickListener 
                 startActivity(new Intent(this, SignInActivity.class));
                 break;
             case R.id.signUp:
-                startActivity(new Intent(this, SignUpActivity.class));
+                startActivity(new Intent(this, SignUpPart1Activity.class));
                 break;
             default:
                 break;

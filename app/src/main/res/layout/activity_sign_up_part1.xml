@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/registration_part1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signUp_message1"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/loginTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/loginTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/loginTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/loginTxt"
+        android:layout_below="@+id/registration_part1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/emailTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/emailTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="textEmailAddress"/>
+
+    <TextView
+        android:id="@+id/emailTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/EmailTxt"
+        android:layout_below="@+id/loginTxtUp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/passwordTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/passwordTvUp"
+        android:layout_alignLeft="@+id/loginTxtUp"
+        android:layout_alignStart="@+id/loginTxtUp"/>
+
+    <TextView
+        android:id="@+id/passwordTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/passwordTxt"
+        android:layout_below="@+id/emailTxtUp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/confirmPasswordTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/confirmPasswordTvUp"
+        android:layout_alignLeft="@+id/passwordTxtUp"
+        android:layout_alignStart="@+id/passwordTxtUp"/>
+
+    <TextView
+        android:id="@+id/confirmPasswordTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/confirmPasswordTxt"
+        android:layout_below="@+id/passwordTxtUp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/letsSignUp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/next"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignRight="@+id/registration_part1"
+        android:layout_alignEnd="@+id/registration_part1"
+        android:layout_alignLeft="@+id/registration_part1"
+        android:layout_alignStart="@+id/registration_part1"/>
+
+</RelativeLayout>

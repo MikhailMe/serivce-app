@@ -1,11 +1,28 @@
 package mishas.clientofapp.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
-    List<Product> products;
-    boolean isDelivered;
-    boolean isMade;
+    private long id;
+    private List<Product> products;
+    public boolean isPaid;
+    public boolean isDelivered;
+    public boolean isMade;
 
+    public Order() {
+        this.products = new ArrayList<>();
+        this.isPaid = false;
+        this.isDelivered = false;
+        this.isMade = false;
+    }
+
+    public void addProduct(Product product){
+        products.add(product);
+    }
+
+    public void sendToThePrepare(){
+        //
+    }
 }

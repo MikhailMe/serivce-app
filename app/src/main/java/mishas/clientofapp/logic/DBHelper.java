@@ -12,11 +12,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String KEY_ID = "_id";
     public static final String KEY_LOGIN = "login";
-    public static final String KEY_PASSWORD = "password";
     public static final String KEY_EMAIL = "email";
+    public static final String KEY_PASSWORD = "password";
     public static final String KEY_NAME = "name";
     public static final String KEY_SURNAME = "surname";
     public static final String KEY_AGE = "age";
+    public static final String KEY_TELEPHONE = "telephone";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -25,9 +26,10 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_CLIENTS + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_LOGIN + " TEXT NOT NULL," + KEY_PASSWORD + " TEXT NOT NULL,"
-                + KEY_EMAIL + " TEXT NOT NULL," + KEY_NAME + " TEXT NOT NULL,"
-                + KEY_SURNAME + " TEXT NOT NULL," + KEY_AGE + " INTEGER NOT NULL" + ");");
+                + KEY_LOGIN + " TEXT NOT NULL," + KEY_EMAIL + " TEXT NOT NULL,"
+                + KEY_PASSWORD + " TEXT NOT NULL," + KEY_NAME + " TEXT NOT NULL,"
+                + KEY_SURNAME + " TEXT NOT NULL," + KEY_AGE + " INTEGER NOT NULL"
+                + KEY_TELEPHONE + " TEXT NOT NULL" + ");");
     }
 
     @Override

@@ -24,6 +24,7 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
     private Button addCard;
     private Button skip;
 
+    private User _user;
     private long id;
 
     private void init() {
@@ -37,11 +38,24 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
         id = 5;
     }
 
+    private void createUser(){
+        _user = new User(getIntent().getLongExtra("id", id),
+                getIntent().getStringExtra("login"),
+                getIntent().getStringExtra("password"),
+                getIntent().getStringExtra("email"),
+                getIntent().getStringExtra("name"),
+                getIntent().getStringExtra("surname"),
+                getIntent().getIntExtra("age", 0),
+                getIntent().getStringExtra("telephone"), true);
+        id++;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_part3);
         init();
+        createUser();
         addCard.setOnClickListener(this);
         skip.setOnClickListener(this);
     }
@@ -60,19 +74,6 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.addCard: {
-
-                User _user = new User(getIntent().getLongExtra("id", id),
-                        getIntent().getStringExtra("login"),
-                        getIntent().getStringExtra("password"),
-                        getIntent().getStringExtra("email"),
-                        getIntent().getStringExtra("name"),
-                        getIntent().getStringExtra("surname"),
-                        getIntent().getIntExtra("age", 0),
-                        getIntent().getStringExtra("telephone"), true);
-                id++;
-                // добавляем админу юзверя (бд)
-                Administrator.users.add(_user);
-
                 String number = numberCard.getText().toString();
                 int month = Integer.parseInt(monthCard.getText().toString());
                 int year = Integer.parseInt(yearCard.getText().toString());
@@ -80,12 +81,18 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
                 int ccv = Integer.parseInt(ccvCard.getText().toString());
                 // добавляем админу карту (бд)
                 Administrator.cards.add(new BankCard(_user.getId(), number, month, year, holder, ccv));
-                Administrator.users.get(Integer.parseInt(_user.getId().toString())).setHasCard(true);
+
+                // добавили карту - записали что у юзверя есть карта
+                _user.setHasCard(true);
+
+                // добавляем админу юзверя (бд)
+                Administrator.users.add(_user);
 
                 startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
                 break;
             }
             case R.id.skip:
+                Administrator.users.add(_user);
                 startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
                 break;
         }

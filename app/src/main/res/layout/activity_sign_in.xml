@@ -22,10 +22,23 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:text="@string/sign_in"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/passwordTxtIn"
         android:layout_alignLeft="@+id/passwordTxtIn"
         android:layout_alignStart="@+id/passwordTxtIn"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignRight="@+id/passwordTxtIn"
+        android:layout_alignEnd="@+id/passwordTxtIn"/>
+
+    <Button
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/forgotPassword"
+        android:layout_below="@+id/passwordTxtIn"
+        android:layout_alignLeft="@+id/passwordTxtIn"
+        android:layout_alignStart="@+id/passwordTxtIn"
+        android:layout_marginTop="120dp"
         android:layout_alignRight="@+id/passwordTxtIn"
         android:layout_alignEnd="@+id/passwordTxtIn"/>
 

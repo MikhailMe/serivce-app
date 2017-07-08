@@ -17,6 +17,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText loginTxt;
     private EditText passwordTxt;
     private Button signIn;
+    private Button forgotPassword;
 
     //private DBHelper dbHelper;
 
@@ -24,6 +25,7 @@ public class SignInActivity extends AppCompatActivity {
         loginTxt = (EditText) findViewById(R.id.loginTxtIn);
         passwordTxt = (EditText) findViewById(R.id.passwordTxtIn);
         signIn = (Button) findViewById(R.id.letsSignIn);
+        forgotPassword = (Button) findViewById(R.id.forgotPassword);
         //dbHelper = new DBHelper(this);
     }
 
@@ -76,8 +78,13 @@ public class SignInActivity extends AppCompatActivity {
                 // достать из бд логин/пароль и проверить есть ли такой пользователь
                 // если есть, то на MainScreenActivity
                 // если нет, то сказать, что есть ошибка и надо попробовать ещё раз
+            }
+        });
 
-
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, RecoveryPasswordActivity.class));
             }
         });
     }

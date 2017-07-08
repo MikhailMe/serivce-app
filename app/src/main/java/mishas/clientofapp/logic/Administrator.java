@@ -37,10 +37,19 @@ public final class Administrator {
     public static List<BankCard> cards;
     public static BagOfOrders bag;
 
-    public static String makeOrderString(){
+    public static boolean isExist(String email) {
+        for (User user : users)
+            if (user.getEmail().equals(email)) {
+                // logic about generate new password
+                return true;
+            }
+        return false;
+    }
+
+    public static String makeOrderString() {
         StringBuilder sb = new StringBuilder();
         int amount, sum = 0, temp = 0;
-        for (ProductType type : ProductType.values()){
+        for (ProductType type : ProductType.values()) {
             amount = products.get(type);
             if (amount != 0) {
                 temp = amount * prices.get(type);
@@ -67,7 +76,7 @@ public final class Administrator {
         return prices;
     }
 
-    private void makeProducts(){
+    private void makeProducts() {
         products.put(ProductType.HOTDOG, 0);
         products.put(ProductType.BURGER, 0);
         products.put(ProductType.HOTCORN, 0);

@@ -10,6 +10,7 @@
     <string name="signIn_message">Please write your login and password</string>
     <string name="signUp_message1">Registration - part 1</string>
     <string name="signUp_message2">Registration - part 2</string>
+    <string name="signUp_message3">Now you can bind a card to your account</string>
     <string name="nameTxt">Name:</string>
     <string name="surnameTxt">Surname:</string>
     <string name="EmailTxt">Email:</string>
@@ -25,7 +26,6 @@
     <string name="food">Food</string>
     <string name="souvenirs">Souvenirs</string>
     <string name="telephoneTxt">Telephone number:</string>
-    <string name="signUp_message3">Registration card</string>
     <string name="next">NEXT</string>
     <string name="add_card">ADD CARD</string>
     <string name="ccvTxt">CCV code:</string>
@@ -34,8 +34,6 @@
     <string name="help">Help</string>
     <string name="logout">Log out</string>
     <string name="additional">Additional</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
@@ -44,5 +42,8 @@
     <string name="burgerTV">BURGER \n\n 250rub</string>
     <string name="hotcornTV">HOTCORN \n\n 150rub</string>
     <string name="chipsTV">CHIPS \n\n 100rub</string>
+    <string name="forgotPassword">Forgot password</string>
+    <string name="send">send</string>
+    <string name="recovery">Enter your email</string>
 
 </resources>

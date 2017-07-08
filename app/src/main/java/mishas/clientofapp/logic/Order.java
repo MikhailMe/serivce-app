@@ -22,7 +22,7 @@ public class Order {
         products.add(product);
     }
 
-    public void sendToThePrepare(){
-        //
+    public static Order makeOrder(){
+        return new Order();
     }
 }

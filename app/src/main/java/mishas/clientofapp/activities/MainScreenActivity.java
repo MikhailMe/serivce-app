@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,9 +15,19 @@ import android.view.MenuItem;
 import android.view.View;
 
 import mishas.clientofapp.R;
+import mishas.clientofapp.fragments.FoodFragment;
+import mishas.clientofapp.fragments.HelpFragment;
+import mishas.clientofapp.fragments.SouvenirsFragment;
+import mishas.clientofapp.fragments.SportsReplayFragment;
 
 public class MainScreenActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FoodFragment foodFr;
+    private SouvenirsFragment souvenirsFr;
+    private SportsReplayFragment sportsReplayFr;
+    private HelpFragment helpFr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,11 @@ public class MainScreenActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        foodFr = new FoodFragment();
+        souvenirsFr = new SouvenirsFragment();
+        sportsReplayFr = new SportsReplayFragment();
+        helpFr = new HelpFragment();
     }
 
     @Override
@@ -54,14 +70,12 @@ public class MainScreenActivity extends AppCompatActivity
         }
     }
 
-    @Override
+   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
         return true;
-    }
-
-    @Override
+    }    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -81,16 +95,24 @@ public class MainScreenActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
+        FragmentTransaction frTransaction = getSupportFragmentManager().beginTransaction();
+
         switch (item.getItemId()){
             case R.id.nav_food:
-                //FIXME
+                frTransaction.replace(R.id.container, foodFr);
                 break;
             case R.id.nav_souvenirs:
-                //FIXME
+                frTransaction.replace(R.id.container, souvenirsFr);
                 break;
-            default:
+            case R.id.nav_sports_replay:
+                frTransaction.replace(R.id.container, sportsReplayFr);
+                break;
+            case R.id.nav_help:
+                frTransaction.replace(R.id.container, helpFr);
+            case R.id.nav_logout:
                 break;
         }
+        frTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

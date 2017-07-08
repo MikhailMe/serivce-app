@@ -19,6 +19,8 @@ public final class BagOfOrders {
         return bagOfOrders;
     }
 
-    private List<Product> products;
+    public List<Product> products;
+
+
 
 }

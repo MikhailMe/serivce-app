@@ -1,0 +1,295 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="mishas.clientofapp.fragments.FoodFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/hotdogImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@mipmap/hotdog"
+        android:layout_alignRight="@+id/burgerImg"
+        android:layout_alignEnd="@+id/burgerImg"/>
+
+    <TextView
+        android:id="@+id/hotdogTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/hotdogTV"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/hotdogImg"
+        android:layout_toEndOf="@+id/hotdogImg"
+        android:layout_alignBottom="@+id/hotdogImg"/>
+
+
+    <ImageView
+        android:id="@+id/burgerImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/burger"
+        android:layout_below="@+id/hotdogImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/burgerTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/burgerTV"
+        android:textColor="#000000"
+        android:layout_toRightOf="@+id/burgerImg"
+        android:layout_toEndOf="@+id/burgerImg"
+        android:layout_alignBottom="@+id/burgerImg"
+        android:layout_below="@+id/hotdogImg"/>
+
+    <ImageView
+        android:id="@+id/hotcornImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/hotcorn"
+        android:layout_below="@+id/burgerImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/hotcornTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/hotcornTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/burgerTv"
+        android:layout_toRightOf="@+id/burgerImg"
+        android:layout_toEndOf="@+id/burgerImg"
+        android:layout_above="@+id/chipsImg"/>
+
+    <ImageView
+        android:id="@+id/chipsImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/chips"
+        android:layout_below="@+id/hotcornImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/chipsTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/chipsTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/hotcornTv"
+        android:layout_toRightOf="@+id/chipsImg"
+        android:layout_toEndOf="@+id/chipsImg"
+        android:layout_alignBottom="@+id/chipsImg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/relativeLayoutHotdog"
+        android:layout_toEndOf="@+id/hotdogTv"
+        android:layout_toRightOf="@+id/hotdogTv">
+
+        <Button
+            android:id="@+id/plus1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus1"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutBurger"
+        android:layout_below="@+id/relativeLayoutHotdog"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/hotdogTv"
+        android:layout_toEndOf="@+id/hotdogTv">
+
+        <Button
+            android:id="@+id/plus2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus2"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutHotcorn"
+        android:layout_below="@+id/relativeLayoutBurger"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/hotcornTv"
+        android:layout_toEndOf="@+id/hotcornTv">
+
+        <Button
+            android:id="@+id/plus3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus3"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutChips"
+        android:layout_below="@+id/relativeLayoutHotcorn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/chipsTv"
+        android:layout_toEndOf="@+id/chipsTv">
+
+        <Button
+            android:id="@+id/plus4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus4"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/nextToDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/next"
+        android:layout_alignBaseline="@+id/viewOrder"
+        android:layout_alignBottom="@+id/viewOrder"
+        android:layout_toRightOf="@+id/chipsTv"
+        android:layout_toEndOf="@+id/chipsTv"/>
+
+    <Button
+        android:id="@+id/viewOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/view_order"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/chipsTv"
+        android:layout_toStartOf="@+id/chipsTv"/>
+
+</RelativeLayout>

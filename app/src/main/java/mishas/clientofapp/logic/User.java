@@ -10,6 +10,7 @@ public class User {
     private String surname;
     private int age;
     private String telephone;
+    private boolean hasCard;
 
     public User(){
         this.id = null;
@@ -20,9 +21,18 @@ public class User {
         this.surname = null;
         this.age = -1;
         this.telephone = null;
+        this.hasCard = false;
     }
 
-    public User(Long id, String login, String password, String email, String name, String surname, int age, String telephone) {
+    public boolean isHasCard() {
+        return hasCard;
+    }
+
+    public void setHasCard(boolean hasCard) {
+        this.hasCard = hasCard;
+    }
+
+    public User(Long id, String login, String password, String email, String name, String surname, int age, String telephone, boolean hasCard) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -31,6 +41,8 @@ public class User {
         this.surname = surname;
         this.age = age;
         this.telephone = telephone;
+        this.hasCard = hasCard;
+
     }
 
     public Long getId() {

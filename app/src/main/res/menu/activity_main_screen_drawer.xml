@@ -4,28 +4,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_food"
-            android:icon="@mipmap/food"
+            android:icon="@drawable/food"
             android:title="@string/food"/>
         <item
             android:id="@+id/nav_souvenirs"
-            android:icon="@mipmap/souvenirs"
+            android:icon="@drawable/souvenirs"
             android:title="@string/souvenirs"/>
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools"/>
+            android:id="@+id/nav_sports_replay"
+            android:icon="@drawable/spotrs_replay"
+            android:title="@string/sport_replay"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/additional">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share"/>
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help"
+                android:title="@string/help"/>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send"/>
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="@string/logout"/>
         </menu>
     </item>
 

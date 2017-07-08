@@ -5,6 +5,7 @@ public enum ProductType {
     HOTDOG,
     BURGER,
     HOTCORN,
+    CHIPS,
     TEA,
     COFFEE,
     WATER,

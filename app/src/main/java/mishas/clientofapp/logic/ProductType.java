@@ -10,6 +10,9 @@ public enum ProductType {
     COFFEE,
     WATER,
     JUICE,
-    BEER;
+    BALL,
+    TSHITRT,
+    MAGNET,
+    FLAG;
 
 }

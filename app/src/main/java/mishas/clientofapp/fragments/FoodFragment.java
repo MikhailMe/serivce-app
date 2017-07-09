@@ -25,13 +25,11 @@ public class FoodFragment extends Fragment {
     private int i1, i2, i3, i4;
 
     public FoodFragment() {
-        // Required empty public constructor
         i1 = 0;
         i2 = 0;
         i3 = 0;
         i4 = 0;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +42,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i1 < 20)
-                i1++;
+                    i1++;
                 Administrator.products.put(ProductType.HOTDOG, i1);
                 amount1.setText(String.valueOf(i1));
             }
@@ -54,7 +52,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i2 < 20)
-                i2++;
+                    i2++;
                 Administrator.products.put(ProductType.BURGER, i2);
                 amount2.setText(String.valueOf(i2));
             }
@@ -64,7 +62,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i3 < 20)
-                i3++;
+                    i3++;
                 Administrator.products.put(ProductType.HOTCORN, i3);
                 amount3.setText(String.valueOf(i3));
             }
@@ -74,7 +72,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i4 < 20)
-                i4++;
+                    i4++;
                 Administrator.products.put(ProductType.CHIPS, i4);
                 amount4.setText(String.valueOf(i4));
             }
@@ -85,7 +83,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i1 > 0)
-                i1--;
+                    i1--;
                 Administrator.products.put(ProductType.HOTDOG, i1);
                 amount1.setText(String.valueOf(i1));
             }
@@ -95,7 +93,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i2 > 0)
-                i2--;
+                    i2--;
                 Administrator.products.put(ProductType.BURGER, i2);
                 amount2.setText(String.valueOf(i2));
             }
@@ -105,7 +103,7 @@ public class FoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (i3 > 0)
-                i3--;
+                    i3--;
                 Administrator.products.put(ProductType.HOTCORN, i3);
                 amount3.setText(String.valueOf(i3));
             }
@@ -130,14 +128,18 @@ public class FoodFragment extends Fragment {
         next.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), LiquidActivity.class));
+                Intent intent = new Intent(getActivity(), LiquidActivity.class);
+                intent.putExtra("user", getActivity().getIntent().getSerializableExtra("user"));
+                startActivity(intent);
             }
         });
         viewOrder = (Button) v.findViewById(R.id.viewOrder);
         viewOrder.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), BagActivity.class));
+                Intent intent = new Intent(getActivity(), BagActivity.class);
+                intent.putExtra("user", getActivity().getIntent().getSerializableExtra("user"));
+                startActivity(intent);
             }
         });
 

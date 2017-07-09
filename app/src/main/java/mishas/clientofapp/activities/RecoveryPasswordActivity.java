@@ -33,10 +33,10 @@ public class RecoveryPasswordActivity extends AppCompatActivity {
                 // if true we generate new password right away
                 if (Administrator.isExist(email.getText().toString())) {
                     startActivity(new Intent(RecoveryPasswordActivity.this, SignInActivity.class));
-                    Toast.makeText(getApplicationContext(), "We sent to your email new password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "We sent to your email new password", Toast.LENGTH_LONG).show();
                 } else {
                     email.setText("");
-                    Toast.makeText(getApplicationContext(), "Sorry, but entered email does not exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Sorry, but entered email does not exist", Toast.LENGTH_LONG).show();
                 }
             }
         });

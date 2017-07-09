@@ -3,7 +3,7 @@ package mishas.clientofapp.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public final class Order {
 
     private long id;
     private List<Product> products;

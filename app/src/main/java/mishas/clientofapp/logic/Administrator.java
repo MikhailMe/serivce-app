@@ -57,7 +57,7 @@ public final class Administrator {
                 sb.append(type).append(": ").append(amount).append("  = ").append(temp).append("rub").append("\n");
             }
         }
-        sb.append("------------------------------------------\n").append("The sum of your order is ").append(sum);
+        sb.append("------------------------------------------\n").append("The sum of your order is ").append(sum).append("rub");
         return sb.toString();
     }
 
@@ -72,7 +72,10 @@ public final class Administrator {
         prices.put(ProductType.COFFEE, 150);
         prices.put(ProductType.WATER, 100);
         prices.put(ProductType.JUICE, 150);
-        prices.put(ProductType.BEER, 150);
+        prices.put(ProductType.BALL, 500);
+        prices.put(ProductType.TSHITRT, 500);
+        prices.put(ProductType.MAGNET, 100);
+        prices.put(ProductType.FLAG, 250);
         return prices;
     }
 
@@ -85,7 +88,10 @@ public final class Administrator {
         products.put(ProductType.COFFEE, 0);
         products.put(ProductType.WATER, 0);
         products.put(ProductType.JUICE, 0);
-        products.put(ProductType.BEER, 0);
+        products.put(ProductType.BALL, 0);
+        products.put(ProductType.TSHITRT, 0);
+        products.put(ProductType.MAGNET, 0);
+        products.put(ProductType.FLAG, 0);
     }
 
     private void addSomeUsers() {

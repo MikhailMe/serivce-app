@@ -87,8 +87,9 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
 
                 // добавляем админу юзверя (бд)
                 Administrator.users.add(_user);
-
-                startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
+                Intent intent = new Intent(SignUpPart3Activity.this, SignInActivity.class);
+                intent.putExtra("user", _user);
+                startActivity(intent);
                 break;
             }
             case R.id.skip:

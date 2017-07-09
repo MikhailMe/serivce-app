@@ -1,6 +1,6 @@
 package mishas.clientofapp.logic;
 
-public class Product {
+public final class Product {
 
     private static long price;
     private ProductType type;

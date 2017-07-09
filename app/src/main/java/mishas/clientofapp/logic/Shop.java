@@ -3,7 +3,7 @@ package mishas.clientofapp.logic;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Shop {
+public final class Shop {
 
     private long id;
     private long sectorId;

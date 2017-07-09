@@ -30,7 +30,9 @@ public class BagActivity extends AppCompatActivity {
         timeToPay.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BagActivity.this, PaymentActivity.class));
+                Intent intent = new Intent(BagActivity.this, PaymentActivity.class);
+                intent.putExtra("user", getIntent().getSerializableExtra("user"));
+                startActivity(intent);
             }
         });
     }

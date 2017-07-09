@@ -45,5 +45,18 @@
     <string name="forgotPassword">Forgot password</string>
     <string name="send">send</string>
     <string name="recovery">Enter your email</string>
+    <string name="teaTV">TEA \n\n 150rub</string>
+    <string name="coffeeTV">COFFEE \n\n 150rub</string>
+    <string name="waterTV">WATER \n\n 100rub</string>
+    <string name="juiceTV">JUICE \n\n 150rub</string>
+    <string name="ballTV">BALL \\n\\n 500rub</string>
+    <string name="magnetTV">MAGNET \\n\\n 150rub</string>
+    <string name="tshirtTV">T-SHIRT \\n\\n 500rub</string>
+    <string name="flagTV">FLAG \\n\\n 150rub</string>
+    <string name="helpfr">Help \n\n\nIn the tabs, you can select the desired category.\n
+                            In each category there are products that you can purchase.\n
+                            To see what you have already chosen you can in the bag.</string>
+    <string name="payment">If you already filled in the card data, click "pay" otherwise fill in the card details and click "pay"</string>
+    <string name="pay">PAY</string>
 
 </resources>

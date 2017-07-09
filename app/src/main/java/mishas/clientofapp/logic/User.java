@@ -1,6 +1,8 @@
 package mishas.clientofapp.logic;
 
-public class User {
+import java.io.Serializable;
+
+public final class User implements Serializable{
 
     private Long id;
     private String login;
@@ -11,6 +13,15 @@ public class User {
     private int age;
     private String telephone;
     private boolean hasCard;
+    private boolean inSystem;
+
+    public boolean isInSystem() {
+        return inSystem;
+    }
+
+    public void setInSystem(boolean inSystem) {
+        this.inSystem = inSystem;
+    }
 
     public User(){
         this.id = null;
@@ -22,9 +33,11 @@ public class User {
         this.age = -1;
         this.telephone = null;
         this.hasCard = false;
+        this.inSystem = false;
+
     }
 
-    public boolean isHasCard() {
+    public boolean HasCard() {
         return hasCard;
     }
 

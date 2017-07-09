@@ -65,7 +65,9 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 cursor.close();*/
                 if (isRegistered) {
-                    startActivity(new Intent(SignInActivity.this, MainScreenActivity.class));
+                    Intent intent = new Intent(SignInActivity.this, MainScreenActivity.class);
+                    intent.putExtra("user", getIntent().getSerializableExtra("user"));
+                    startActivity(intent);
                 } else {
                     loginTxt.setText("");
                     passwordTxt.setText("");

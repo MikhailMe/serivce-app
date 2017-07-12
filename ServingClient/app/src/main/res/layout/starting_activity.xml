@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/constraintLayout"
+        android:background="@drawable/main_shape_left">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="474dp"
+            android:layout_height="428dp"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            android:layout_marginStart="116dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="116dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="278dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="116dp"
+            android:layout_marginRight="116dp"
+            android:background="@drawable/starting_layout_back"
+            app:layout_constraintHorizontal_bias="0.709">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/shape"
+                android:text="SIGN IN"
+
+                android:textColor="@android:color/background_light"
+                android:layout_below="@+id/editText2"
+                android:layout_alignLeft="@+id/editText2"
+                android:layout_alignStart="@+id/editText2"
+                android:layout_alignRight="@+id/editText2"
+                android:layout_alignEnd="@+id/editText2" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:layout_marginTop="37dp"
+                android:layout_below="@+id/textView6"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:layout_below="@+id/textView"
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login: "
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_below="@+id/textView6"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password: "
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textColor="@android:color/black"
+                android:textSize="42sp"
+                android:layout_marginTop="67dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

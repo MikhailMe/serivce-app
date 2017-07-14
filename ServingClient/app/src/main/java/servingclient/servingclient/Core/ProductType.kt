@@ -7,12 +7,16 @@ enum class ProductType {
     CHEESEBURGER,
     HAMBURGER,
     HOT_CORN,
+    CHIPS,
 
     //DRINKS
     COLD_BEER,
     COCA_COLA,
     WATER,
     STEEL_WATER,
+    TEA,
+    COFFEE,
+    JUICE,
 
     //SPORT_GOODS
     SCARF,

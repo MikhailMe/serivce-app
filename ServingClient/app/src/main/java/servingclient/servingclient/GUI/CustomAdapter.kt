@@ -35,13 +35,16 @@ class CustomAdapter(private val context: Activity, private val itemname: ArrayLi
                 itemname.get(position).contains("CHEESEBURGER") -> imgid[1]
                 itemname.get(position).contains("HAMBURGER") -> imgid[2]
                 itemname.get(position).contains("HOT_CORN") -> imgid[3]
-                itemname.get(position).contains("COLD_BEER") -> imgid[4]
-                itemname.get(position).contains("COCA_COLA") -> imgid[5]
-                itemname.get(position).contains("WATER") -> imgid[6]
-                itemname.get(position).contains("STEEL_WATER") -> imgid[7]
-                itemname.get(position).contains("SCARF") -> imgid[8]
-                itemname.get(position).contains("BALL") -> imgid[9]
-                else -> imgid[10]
+                itemname.get(position).contains("CHIPS") -> imgid[4]
+                itemname.get(position).contains("COLD_BEER") -> imgid[5]
+                itemname.get(position).contains("COCA_COLA") -> imgid[6]
+                itemname.get(position).contains("WATER") -> imgid[7]
+                itemname.get(position).contains("STEEL_WATER") -> imgid[8]
+                itemname.get(position).contains("TEA") -> imgid[9]
+                itemname.get(position).contains("COFFEE") -> imgid[10]
+                itemname.get(position).contains("JUICE") -> imgid[11]
+                itemname.get(position).contains("BALL") -> imgid[12]
+                else -> imgid[13]
             })
 
         return rowView

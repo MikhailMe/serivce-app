@@ -32,10 +32,14 @@ class MainActivity : AppCompatActivity() {
             R.drawable.hamburger,
             R.drawable.hamburger,
             R.drawable.hot_corn,
+            R.drawable.chips,
             R.drawable.cold_beer,
             R.drawable.coca_cola,
             R.drawable.water,
             R.drawable.water,
+            R.drawable.tea,
+            R.drawable.coffee,
+            R.drawable.juice,
             R.drawable.scarf,
             R.drawable.ball,
             R.drawable.t_shirt)
@@ -137,6 +141,20 @@ class MainActivity : AppCompatActivity() {
                         Product(ProductType.STEEL_WATER, 100.0) to 4,
                         Product(ProductType.CHEESEBURGER, 100.0) to 5,
                         Product(ProductType.COCA_COLA, 100.0) to 3)
+        val fullProductList =
+                hashMapOf<Product, Int>(Product(ProductType.HAMBURGER, 300.0) to 2,
+                        Product(ProductType.STEEL_WATER, 100.0) to 4,
+                        Product(ProductType.CHEESEBURGER, 100.0) to 5,
+                        Product(ProductType.COCA_COLA, 100.0) to 3,
+                        Product(ProductType.HOT_DOG, 100.0) to 1,
+                        Product(ProductType.HOT_CORN, 100.0) to 7,
+                        Product(ProductType.CHIPS, 100.0) to 14,
+                        Product(ProductType.WATER, 100.0) to 9,
+                        Product(ProductType.TEA, 100.0) to 12,
+                        Product(ProductType.COFFEE, 100.0) to 8,
+                        Product(ProductType.JUICE, 100.0) to 10,
+                        Product(ProductType.BALL, 100.0) to 11,
+                        Product(ProductType.T_SHIRT, 100.0) to 6)
         val orders =
                 arrayListOf<Order>(Order(1, productList),
                         Order(2, productList1),
@@ -144,9 +162,10 @@ class MainActivity : AppCompatActivity() {
                         Order(3, productList2),
                         Order(333, productList1),
                         Order(200, productList))
-        Log.d("Ordersdislpay", orders[1].toString())
+        Log.d("Ordersdislpay", fullProductList.toString())
         shop = Shop(shopId, sectorId, arrayListOf<Order>(), servingUsers)
     }
+
     // listening for orders..
     fun run() {
         println("The capitalization server is running.")

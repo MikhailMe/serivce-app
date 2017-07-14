@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
             R.drawable.ball,
             R.drawable.t_shirt)
 
+    private val list = arrayListOf<String>()
+    private val ordersList = arrayListOf<String>()
+    private var adapter: ArrayAdapter<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,19 +58,18 @@ class MainActivity : AppCompatActivity() {
         // setting orders and shop for testing
         createEnvironment()
 
-        // setting list view to the left fragment
-        val ordersList = arrayListOf<String>()
-        shop.getOrders()?.forEach { ordersList.add("Order №" + it.id) }
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ordersList)
+        //creating two listViews
         val listView = findViewById(R.id.listOrder) as ListView
-        listView.adapter = adapter
-        adapter.notifyDataSetChanged()
-
-        // setting list view of the right fragment
-        val list = arrayListOf<String>()
-        //val adapter1 = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list)
-        val adapter1 = CustomAdapter(this, list, massive)
         val listView1 = findViewById(R.id.listView) as ListView
+
+        // setting list view with list view adapter
+        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ordersList)
+        shop.getOrders()?.forEach { ordersList.add("Order №" + it.id) }
+        listView.adapter = adapter
+        adapter?.notifyDataSetChanged()
+
+        // setting list view with list view adapter
+        val adapter1 = CustomAdapter(this, list, massive)
         listView1.adapter = adapter1
 
         // setting onclicklistener of the left listview
@@ -99,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 shop.getOrders()?.remove(shop.getOrders()?.first { it.id == currentOrderId })
                 list.clear()
                 currentlyOpenView?.setBackgroundColor(Color.parseColor(BACKGROUND_COLOR))
-                adapter.notifyDataSetChanged()
+                adapter?.notifyDataSetChanged()
                 adapter1.notifyDataSetChanged()
             }
         }
@@ -142,7 +144,8 @@ class MainActivity : AppCompatActivity() {
                         Order(3, productList2),
                         Order(333, productList1),
                         Order(200, productList))
-        shop = Shop(shopId, sectorId, orders, servingUsers)
+        Log.d("Ordersdislpay", orders[1].toString())
+        shop = Shop(shopId, sectorId, arrayListOf<Order>(), servingUsers)
     }
     // listening for orders..
     fun run() {
@@ -152,10 +155,8 @@ class MainActivity : AppCompatActivity() {
         try {
             while (true) {
                 println("HI IM THERE")
-                if (listener.accept() == null)
-                    println("socket is empty")
-                Thread(Capitalizer(listener.accept(), clientNumber++)).start()
-                Log.d("LISTEN,client number = ", clientNumber.toString())
+                Thread(Capitalizer(listener.accept(), clientNumber++, shop.getOrders(), ordersList)).start()
+                runOnUiThread { adapter?.notifyDataSetChanged() }
             }
         } finally {
             println("FINALLY I M THERE")

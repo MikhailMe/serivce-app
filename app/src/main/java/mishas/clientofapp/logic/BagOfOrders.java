@@ -1,10 +1,9 @@
 package mishas.clientofapp.logic;
 
-import java.util.List;
-
 public final class BagOfOrders {
 
     private static volatile BagOfOrders bagOfOrders;
+    private Order order;
 
     private BagOfOrders() {
 
@@ -12,13 +11,15 @@ public final class BagOfOrders {
 
     public static BagOfOrders getInstance() {
         if (bagOfOrders == null)
-            synchronized (BagOfOrders.class){
+            synchronized (BagOfOrders.class) {
                 if (bagOfOrders == null)
                     bagOfOrders = new BagOfOrders();
             }
         return bagOfOrders;
     }
 
-    public List<Product> products;
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 
 }

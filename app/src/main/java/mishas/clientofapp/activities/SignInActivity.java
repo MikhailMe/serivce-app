@@ -26,6 +26,7 @@ public class SignInActivity extends AppCompatActivity {
         passwordTxt = (EditText) findViewById(R.id.passwordTxtIn);
         signIn = (Button) findViewById(R.id.letsSignIn);
         forgotPassword = (Button) findViewById(R.id.forgotPassword);
+        Administrator.clear();
         //dbHelper = new DBHelper(this);
     }
 
@@ -46,8 +47,9 @@ public class SignInActivity extends AppCompatActivity {
                 String login = loginTxt.getText().toString();
                 String password = passwordTxt.getText().toString();
 
-                for (User user : Administrator.users){
-                    if (login.equals(user.getLogin()) && password.equals(user.getPassword())){
+                for (User user : Administrator.users) {
+                    if (login.equals(user.getLogin()) && password.equals(user.getPassword())) {
+                        Administrator.currentUser = user;
                         isRegistered = true;
                         break;
                     }
@@ -65,9 +67,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 cursor.close();*/
                 if (isRegistered) {
-                    Intent intent = new Intent(SignInActivity.this, MainScreenActivity.class);
-                    intent.putExtra("user", getIntent().getSerializableExtra("user"));
-                    startActivity(intent);
+                    startActivity(new Intent(SignInActivity.this, MainScreenActivity.class));
                 } else {
                     loginTxt.setText("");
                     passwordTxt.setText("");

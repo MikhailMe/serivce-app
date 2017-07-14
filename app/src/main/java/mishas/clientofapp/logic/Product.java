@@ -2,20 +2,43 @@ package mishas.clientofapp.logic;
 
 public final class Product {
 
-    private static long price;
+    private long id;
+    private int price;
     private ProductType type;
-    private boolean isMade;
 
-    public Product(){
-        this.price = 0;
-        this.type = null;
-        this.isMade = false;
-    }
-
-    public Product(long price, ProductType type) {
-        this.price = price;
+    public Product(ProductType type, int price) {
         this.type = type;
-        this.isMade = false;
+        this.price = price;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public ProductType getType() {
+        return type;
+    }
+
+    public void setType(ProductType type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString(){
+        return "Product(productType=" +
+                type + ", price=" + price + ".0)";
+
+    }
 }

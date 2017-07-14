@@ -11,7 +11,6 @@ import android.widget.Toast;
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.BankCard;
-import mishas.clientofapp.logic.User;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -22,7 +21,6 @@ public class PaymentActivity extends AppCompatActivity {
     private EditText ccvCard;
 
     private Button pay;
-    private User _user;
     private BankCard card;
 
     private void init() {
@@ -33,31 +31,36 @@ public class PaymentActivity extends AppCompatActivity {
         ccvCard = (EditText) findViewById(R.id._ccvTxt);
 
         pay = (Button) findViewById(R.id.pay);
-        _user = (User) getIntent().getSerializableExtra("user");
         card = Administrator.cards.get(0);
     }
 
-    /*private void ifHasCard() {
-        if (_user.HasCard()){
+    private void ifHasCard() {
+        if (Administrator.currentUser.HasCard()) {
             numberCard.setText(String.valueOf(card.getNumber()));
             monthCard.setText(String.valueOf(card.getMonth()));
             yearCard.setText(String.valueOf(card.getYear()));
             holderCard.setText(String.valueOf(card.getName()));
             ccvCard.setText(String.valueOf(card.getCcv()));
         }
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         init();
-        //ifHasCard();
-
+        ifHasCard();
         pay.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Your order is successfully paid!", Toast.LENGTH_SHORT).show();
+                if (numberCard.getText().toString().equals("") ||
+                        monthCard.getText().toString().equals("") ||
+                        yearCard.getText().toString().equals("") ||
+                        holderCard.getText().toString().equals("") ||
+                        ccvCard.getText().toString().equals(""))
+                    Toast.makeText(getApplicationContext(), "Please fill in all the fields of the card!", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Your order is successfully paid!", Toast.LENGTH_SHORT).show();
             }
         });
     }

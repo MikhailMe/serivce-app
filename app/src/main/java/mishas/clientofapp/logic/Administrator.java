@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-// данный класс заменят бд - в будущем всё будет реализовано через бд и этот класс будет удалён
+// данный класс заменяет совокупность бд - в будущем всё будет реализовано через бд и этот класс будет удалён
 public final class Administrator {
 
     private static volatile Administrator admin;
@@ -15,7 +16,6 @@ public final class Administrator {
         prices = new HashMap<>();
         users = new ArrayList<>();
         cards = new ArrayList<>();
-        bag = BagOfOrders.getInstance();
         makeProducts();
         prices();
         addSomeUsers();
@@ -35,34 +35,53 @@ public final class Administrator {
     public static Map<ProductType, Integer> prices;
     public static List<User> users;
     public static List<BankCard> cards;
-    public static BagOfOrders bag;
+    public static User currentUser;
+    public static Order currentOrder;
+    public static void clear() {
+        currentUser = null;
+        currentOrder = null;
+    }
+
+    private static String generatePassword() {
+        StringBuilder sb = new StringBuilder();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=-";
+        for (int i = 0; i < 5; i++) {
+            sb.append(alphabet.charAt(new Random().nextInt(alphabet.length() + 1)));
+        }
+        return sb.toString();
+    }
 
     public static boolean isExist(String email) {
         for (User user : users)
             if (user.getEmail().equals(email)) {
-                // logic about generate new password
+                String newPassword = generatePassword();
+                user.setPassword(newPassword);
                 return true;
             }
         return false;
     }
 
-    public static String makeOrderString() {
-        StringBuilder sb = new StringBuilder();
-        int amount, sum = 0, temp = 0;
-        for (ProductType type : ProductType.values()) {
-            amount = products.get(type);
-            if (amount != 0) {
-                temp = amount * prices.get(type);
-                sum += temp;
-                sb.append(type).append(": ").append(amount).append("  = ").append(temp).append("rub").append("\n");
+    public static Map<Product, Integer> productsToOrder() {
+        Map<Product, Integer> order = new HashMap<>();
+        ProductType type;
+        int amount, price;
+        for (Map.Entry<ProductType, Integer> prod : products.entrySet()) {
+            amount = prod.getValue();
+            if (amount != 0){
+                type = prod.getKey();
+                price = prices.get(type);
+                order.put(new Product(type, price),amount);
             }
         }
-        sb.append("------------------------------------------\n").append("The sum of your order is ").append(sum).append("rub");
-        return sb.toString();
+        return order;
     }
 
+    /*
+    *
+    * Epic database
+    *
+    * */
 
-    // потом брать всё из бд
     private static Map<ProductType, Integer> prices() {
         prices.put(ProductType.HOTDOG, 250);
         prices.put(ProductType.BURGER, 250);

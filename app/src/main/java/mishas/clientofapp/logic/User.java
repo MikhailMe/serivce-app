@@ -37,14 +37,6 @@ public final class User implements Serializable{
 
     }
 
-    public boolean HasCard() {
-        return hasCard;
-    }
-
-    public void setHasCard(boolean hasCard) {
-        this.hasCard = hasCard;
-    }
-
     public User(Long id, String login, String password, String email, String name, String surname, int age, String telephone, boolean hasCard) {
         this.id = id;
         this.login = login;
@@ -56,6 +48,14 @@ public final class User implements Serializable{
         this.telephone = telephone;
         this.hasCard = hasCard;
 
+    }
+
+    public boolean HasCard() {
+        return hasCard;
+    }
+
+    public void setHasCard(boolean hasCard) {
+        this.hasCard = hasCard;
     }
 
     public Long getId() {

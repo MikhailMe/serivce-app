@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 import mishas.clientofapp.R;
+import mishas.clientofapp.logic.Administrator;
 
 public class SignUpPart1Activity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class SignUpPart1Activity extends AppCompatActivity {
     private Button signUp1;
 
     private void init() {
+        Administrator.clear();
         loginTxt = (EditText) findViewById(R.id.loginTxtUp);
         emailTxt = (EditText) findViewById(R.id.emailTxtUp);
         passwordTxt = (EditText) findViewById(R.id.passwordTxtUp);

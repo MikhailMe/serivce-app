@@ -11,6 +11,44 @@
     tools:showIn="@layout/app_bar_main_screen"
     android:background="@color/colorBackground">
 
-    
 
+    <Button
+        android:id="@+id/food_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/food"
+        android:layout_below="@+id/bag_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:id="@+id/souvenirs_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/souvenirs"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/food_btn"
+        android:layout_alignStart="@+id/food_btn"/>
+
+    <Button
+        android:id="@+id/replay_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/sport_replay"
+        android:layout_marginBottom="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/bag_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/bag"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

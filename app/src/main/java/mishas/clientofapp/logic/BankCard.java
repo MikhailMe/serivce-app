@@ -2,30 +2,9 @@ package mishas.clientofapp.logic;
 
 public final class BankCard {
 
-    final class Date{
-
-        private int month;
-        private int year;
-
-        public Date(int month, int year) {
-            this.month = month;
-            this.year = year;
-        }
-
-        public int getMonth() {
-            return month;
-        }
-
-        public int getYear() {
-            return year;
-        }
-    }
-
     private long id;
     private long userId;
     private String number;
-    //private Date date;
-
     private int month;
     private int  year;
 
@@ -35,7 +14,6 @@ public final class BankCard {
     public BankCard(long userId, String number, int month, int year, String name, int ccv) {
         this.userId = userId;
         this.number = number;
-        //this.date = new Date(month, year);
         this.month = month;
         this.year = year;
         this.name = name;
@@ -81,13 +59,6 @@ public final class BankCard {
     public void setYear(int year) {
         this.year = year;
     }
-/*public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }*/
 
     public String getName() {
         return name;

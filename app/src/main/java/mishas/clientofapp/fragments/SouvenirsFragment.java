@@ -30,11 +30,6 @@ public class SouvenirsFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_souvenirs, container, false);
@@ -43,40 +38,44 @@ public class SouvenirsFragment extends Fragment {
         _plus1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i1 < 20)
+                if (i1 < 20) {
                     i1++;
-                Administrator.products.put(ProductType.BALL, i1);
-                _amount1.setText(String.valueOf(i1));
+                    Administrator.products.put(ProductType.BALL, i1);
+                    _amount1.setText(String.valueOf(i1));
+                }
             }
         });
         _plus2 = (Button) v.findViewById(R.id._plus2);
         _plus2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i2 < 20)
+                if (i2 < 20) {
                     i2++;
-                Administrator.products.put(ProductType.TSHITRT, i2);
-                _amount2.setText(String.valueOf(i2));
+                    Administrator.products.put(ProductType.TSHITRT, i2);
+                    _amount2.setText(String.valueOf(i2));
+                }
             }
         });
         _plus3 = (Button) v.findViewById(R.id._plus3);
         _plus3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i3 < 20)
+                if (i3 < 20) {
                     i3++;
-                Administrator.products.put(ProductType.MAGNET, i3);
-                _amount3.setText(String.valueOf(i3));
+                    Administrator.products.put(ProductType.MAGNET, i3);
+                    _amount3.setText(String.valueOf(i3));
+                }
             }
         });
         _plus4 = (Button) v.findViewById(R.id._plus4);
         _plus4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i4 < 20)
+                if (i4 < 20) {
                     i4++;
-                Administrator.products.put(ProductType.FLAG, i4);
-                _amount4.setText(String.valueOf(i4));
+                    Administrator.products.put(ProductType.FLAG, i4);
+                    _amount4.setText(String.valueOf(i4));
+                }
             }
         });
 
@@ -84,40 +83,44 @@ public class SouvenirsFragment extends Fragment {
         _minus1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i1 > 0)
+                if (i1 > 0) {
                     i1--;
-                Administrator.products.put(ProductType.BALL, i1);
-                _amount1.setText(String.valueOf(i1));
+                    Administrator.products.put(ProductType.BALL, i1);
+                    _amount1.setText(String.valueOf(i1));
+                }
             }
         });
         _minus2 = (Button) v.findViewById(R.id._minus2);
         _minus2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i2 > 0)
+                if (i2 > 0) {
                     i2--;
-                Administrator.products.put(ProductType.TSHITRT, i2);
-                _amount2.setText(String.valueOf(i2));
+                    Administrator.products.put(ProductType.TSHITRT, i2);
+                    _amount2.setText(String.valueOf(i2));
+                }
             }
         });
         _minus3 = (Button) v.findViewById(R.id._minus3);
         _minus3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i3 > 0)
+                if (i3 > 0) {
                     i3--;
-                Administrator.products.put(ProductType.MAGNET, i3);
-                _amount3.setText(String.valueOf(i3));
+                    Administrator.products.put(ProductType.MAGNET, i3);
+                    _amount3.setText(String.valueOf(i3));
+                }
             }
         });
         _minus4 = (Button) v.findViewById(R.id._minus4);
         _minus4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i4 > 0)
+                if (i4 > 0) {
                     i4--;
-                Administrator.products.put(ProductType.FLAG, i4);
-                _amount4.setText(String.valueOf(i4));
+                    Administrator.products.put(ProductType.FLAG, i4);
+                    _amount4.setText(String.valueOf(i4));
+                }
             }
         });
 
@@ -130,13 +133,11 @@ public class SouvenirsFragment extends Fragment {
         viewOrder3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BagActivity.class);
-                intent.putExtra("user", getActivity().getIntent().getSerializableExtra("user"));
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), BagActivity.class));
             }
         });
 
-        return v; // inflater.inflate(R.layout.fragment_souvenirs, container, false);
+        return v;
     }
 
 }

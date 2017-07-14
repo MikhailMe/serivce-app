@@ -72,14 +72,14 @@
 
     <EditText
         android:id="@+id/_holderCard"
-        android:layout_width="35dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="20sp"
         android:textColor="#000000"
-        android:layout_alignBottom="@+id/_yearOfCard"
-        android:layout_toRightOf="@+id/ccvTv"
-        android:layout_toEndOf="@+id/ccvTv"/>
+        android:layout_alignTop="@+id/_yearOfCard"
+        android:layout_alignLeft="@+id/_ccvTxt"
+        android:layout_alignStart="@+id/_ccvTxt"/>
 
     <TextView
         android:id="@+id/_ccvTv"

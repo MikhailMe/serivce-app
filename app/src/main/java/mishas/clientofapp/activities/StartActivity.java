@@ -13,14 +13,12 @@ import mishas.clientofapp.logic.BagOfOrders;
 
 public class StartActivity extends AppCompatActivity implements OnClickListener {
 
-    private Administrator admin;
-    private BagOfOrders bag;
     private Button signIn;
     private Button signUp;
 
     private void init() {
-        admin = Administrator.getInstance();
-        bag = BagOfOrders.getInstance();
+        Administrator.getInstance();
+        BagOfOrders.getInstance();
         signIn = (Button) findViewById(R.id.signIn);
         signUp = (Button) findViewById(R.id.signUp);
     }

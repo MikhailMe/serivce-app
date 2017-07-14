@@ -25,7 +25,7 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
     private Button skip;
 
     private User _user;
-    private long id;
+    private long id = 5;
 
     private void init() {
         numberCard = (EditText) findViewById(R.id.numberOfCard);
@@ -35,7 +35,6 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
         ccvCard = (EditText) findViewById(R.id.ccvTxt);
         addCard = (Button) findViewById(R.id.addCard);
         skip = (Button) findViewById(R.id.skip);
-        id = 5;
     }
 
     private void createUser(){
@@ -86,13 +85,13 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
                 _user.setHasCard(true);
 
                 // добавляем админу юзверя (бд)
+                Administrator.currentUser = _user;
                 Administrator.users.add(_user);
-                Intent intent = new Intent(SignUpPart3Activity.this, SignInActivity.class);
-                intent.putExtra("user", _user);
-                startActivity(intent);
+                startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
                 break;
             }
             case R.id.skip:
+                Administrator.currentUser = _user;
                 Administrator.users.add(_user);
                 startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
                 break;

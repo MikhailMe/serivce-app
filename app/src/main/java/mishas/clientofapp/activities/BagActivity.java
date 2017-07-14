@@ -26,13 +26,15 @@ public class BagActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bag_of_orders);
         init();
-        text.setText(Administrator.makeOrderString());
+        Administrator.currentOrder.setProducts(Administrator.productsToOrder());
+        String print = Administrator.currentOrder.getOrderString();
+        if ("Sorry, but your bag is empty! :(".equals(print))
+            timeToPay.setEnabled(false);
+        text.setText(print);
         timeToPay.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BagActivity.this, PaymentActivity.class);
-                intent.putExtra("user", getIntent().getSerializableExtra("user"));
-                startActivity(intent);
+                startActivity(new Intent(BagActivity.this, PaymentActivity.class));
             }
         });
     }

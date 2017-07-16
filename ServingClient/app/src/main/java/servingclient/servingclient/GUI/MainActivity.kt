@@ -174,8 +174,11 @@ class MainActivity : AppCompatActivity() {
         try {
             while (true) {
                 println("HI IM THERE")
-                Thread(Capitalizer(listener.accept(), clientNumber++, shop.getOrders(), ordersList)).start()
-                runOnUiThread { adapter?.notifyDataSetChanged() }
+                Thread(Capitalizer(listener.accept(), clientNumber++, shop.getOrders())).start()
+                runOnUiThread {
+                    ordersList.add("Order №" + (clientNumber - 1))
+                    adapter?.notifyDataSetChanged()
+                }
             }
         } finally {
             println("FINALLY I M THERE")

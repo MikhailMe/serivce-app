@@ -21,7 +21,7 @@ public class Capitalizer implements Runnable {
     private Socket socket;
     private int clientNumber;
     private final ArrayList<Order> orders;
-    private ArrayList<String> orderList;
+    //private ArrayList<String> orderList;
     private ProductType[] productTypes = {ProductType.HOT_DOG,
             ProductType.CHEESEBURGER,
             ProductType.HAMBURGER,
@@ -39,11 +39,11 @@ public class Capitalizer implements Runnable {
             ProductType.T_SHIRT};
     private List<ProductType> productTypeArrayList = Arrays.asList(productTypes);
 
-    public Capitalizer(Socket socket, int clientNumber, ArrayList<Order> orders, ArrayList<String> orderList) {
+    public Capitalizer(Socket socket, int clientNumber, ArrayList<Order> orders) {
         this.socket = socket;
         this.clientNumber = clientNumber;
         this.orders = orders;
-        this.orderList = orderList;
+        //this.orderList = orderList;
         log("New connection with client# " + clientNumber + " at " + socket);
     }
 
@@ -75,6 +75,7 @@ public class Capitalizer implements Runnable {
                         if (p.toString().equals(productType)) break;
                         counter++;
                     }
+                    Log.d("Counter", counter + "");
                     ProductType pt = productTypeArrayList.get(counter);
                     String priceAndNumber = st.nextToken();
                     double price = Double.parseDouble(priceAndNumber.split("=")[1]);
@@ -86,7 +87,7 @@ public class Capitalizer implements Runnable {
                 Log.d("Order", order.toString());
                 synchronized (orders) {
                     orders.add(order);
-                    orderList.add("Order №" + order.getId());
+                    //orderList.add("Order №" + order.getId());
                 }
             }
         } catch (IOException e) {

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/liquid_fr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mishas.clientofapp.activities.LiquidActivity"
+    android:background="@color/colorBackground">
+
+
+    <ImageView
+        android:id="@+id/teaImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@mipmap/tea"
+        android:layout_alignRight="@+id/burgerImg"
+        android:layout_alignEnd="@+id/burgerImg"/>
+
+    <TextView
+        android:id="@+id/teaTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/teaTV"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/teaImg"
+        android:layout_toEndOf="@+id/teaImg"
+        android:layout_alignBottom="@+id/teaImg"/>
+
+
+    <ImageView
+        android:id="@+id/coffeeImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/coffee"
+        android:layout_below="@+id/teaImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/coffeeTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/coffeeTV"
+        android:textColor="#000000"
+        android:layout_toRightOf="@+id/coffeeImg"
+        android:layout_toEndOf="@+id/coffeeImg"
+        android:layout_alignBottom="@+id/coffeeImg"
+        android:layout_below="@+id/teaImg"/>
+
+    <ImageView
+        android:id="@+id/waterImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/water"
+        android:layout_below="@+id/coffeeImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/waterTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/waterTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/coffeeTv"
+        android:layout_toRightOf="@+id/coffeeImg"
+        android:layout_toEndOf="@+id/coffeeImg"
+        android:layout_alignBottom="@+id/waterImg"/>
+
+    <ImageView
+        android:id="@+id/juiceImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/juice"
+        android:layout_below="@+id/waterImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/juiceTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/juiceTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/waterTv"
+        android:layout_toRightOf="@+id/juiceImg"
+        android:layout_toEndOf="@+id/juiceImg"
+        android:layout_alignBottom="@+id/juiceImg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/relativeLayoutTea"
+        android:layout_toEndOf="@+id/teaTv"
+        android:layout_toRightOf="@+id/teaTv">
+
+        <Button
+            android:id="@+id/plus_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus_1"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutCoffee"
+        android:layout_below="@+id/relativeLayoutTea"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/teaTv"
+        android:layout_toEndOf="@+id/teaTv">
+
+        <Button
+            android:id="@+id/plus_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus_2"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutWater"
+        android:layout_below="@+id/relativeLayoutCoffee"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/coffeeTv"
+        android:layout_toEndOf="@+id/coffeeTv">
+
+        <Button
+            android:id="@+id/plus_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus_3"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutJuice"
+        android:layout_below="@+id/waterTv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/waterTv"
+        android:layout_toEndOf="@+id/waterTv">
+
+        <Button
+            android:id="@+id/plus_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/minus_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/amount_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/plus_4"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/viewOrder2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/view_order"
+        android:layout_below="@+id/juiceImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
+
+</RelativeLayout>

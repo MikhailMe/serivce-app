@@ -1,0 +1,278 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="mishas.clientofapp.fragments.SouvenirsFragment"
+             android:background="@color/colorBackground">
+
+    <ImageView
+        android:id="@+id/ballImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@mipmap/ball"
+        android:layout_alignRight="@+id/tshitrtImg"
+        android:layout_alignEnd="@+id/tshitrtImg"/>
+
+    <TextView
+        android:id="@+id/ballTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/ballTV"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ballImg"
+        android:layout_toEndOf="@+id/ballImg"
+        android:layout_alignBottom="@+id/ballImg"/>
+
+    <ImageView
+        android:id="@+id/tshirtImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/tshirt"
+        android:layout_below="@+id/ballImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/tshirtTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/tshirtTV"
+        android:textColor="#000000"
+        android:layout_toRightOf="@+id/tshirtImg"
+        android:layout_toEndOf="@+id/tshirtImg"
+        android:layout_alignBottom="@+id/tshirtImg"
+        android:layout_below="@+id/ballImg"/>
+
+    <ImageView
+        android:id="@+id/magnetImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/magnet"
+        android:layout_below="@+id/tshirtImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/magnetTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/magnetTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/tshirtTv"
+        android:layout_toRightOf="@+id/tshirtImg"
+        android:layout_toEndOf="@+id/tshirtImg"
+        android:layout_above="@+id/flagImg"/>
+
+    <ImageView
+        android:id="@+id/flagImg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/flag"
+        android:layout_below="@+id/magnetImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/flagTv"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/flagTV"
+        android:textColor="#000000"
+        android:layout_below="@+id/magnetTv"
+        android:layout_toRightOf="@+id/flagImg"
+        android:layout_toEndOf="@+id/flagImg"
+        android:layout_alignBottom="@+id/flagImg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/relativeLayoutBall"
+        android:layout_toEndOf="@+id/ballTv"
+        android:layout_toRightOf="@+id/ballTv">
+
+        <Button
+            android:id="@+id/_plus1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/_minus1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/_amount1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/_plus1"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutTshirt"
+        android:layout_below="@+id/relativeLayoutBall"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/ballTv"
+        android:layout_toRightOf="@+id/ballTv">
+
+        <Button
+            android:id="@+id/_plus2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/_minus2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/_amount2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/_plus2"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutMagnet"
+        android:layout_below="@+id/tshirtImg"
+        android:layout_toRightOf="@+id/tshirtTv"
+        android:layout_toEndOf="@+id/tshirtTv">
+
+        <Button
+            android:id="@+id/_plus3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/_minus3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/_amount3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/_plus3"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayoutFlag"
+        android:layout_below="@+id/relativeLayoutMagnet"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/magnetTv"
+        android:layout_toRightOf="@+id/magnetTv">
+
+        <Button
+            android:id="@+id/_plus4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/plus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/_minus4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:text="@string/minus"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/_amount4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_alignTop="@+id/_plus4"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/viewOrder3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/view_order"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/flagImg"
+        android:layout_toEndOf="@+id/flagImg"/>
+
+</RelativeLayout>

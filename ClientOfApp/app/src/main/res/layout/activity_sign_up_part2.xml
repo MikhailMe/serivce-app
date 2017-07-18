@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/registration_part2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signUp_message2"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/nameTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/nameTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/nameTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/nameTxt"
+        android:layout_below="@+id/registration_part2"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/surnameTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/surnameTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/surnameTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/surnameTxt"
+        android:layout_below="@+id/nameTxtUp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <EditText
+        android:id="@+id/ageTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/ageTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/ageTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/AgeTxt"
+        android:layout_below="@+id/surnameTxtUp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/telephoneTxtUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/telephoneTvUp"
+        android:layout_centerHorizontal="true"
+        android:inputType="phone|number"/>
+
+    <TextView
+        android:id="@+id/telephoneTvUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="@string/telephoneTxt"
+        android:layout_below="@+id/ageTxtUp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/letsSignUp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="@string/sign_up"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignRight="@+id/registration_part2"
+        android:layout_alignEnd="@+id/registration_part2"
+        android:layout_alignLeft="@+id/registration_part2"
+        android:layout_alignStart="@+id/registration_part2"/>
+
+</RelativeLayout>

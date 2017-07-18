@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_food"
+            android:icon="@drawable/food"
+            android:title="@string/food"/>
+        <item
+            android:id="@+id/nav_souvenirs"
+            android:icon="@drawable/souvenirs"
+            android:title="@string/souvenirs"/>
+        <item
+            android:id="@+id/nav_sports_replay"
+            android:icon="@drawable/spotrs_replay"
+            android:title="@string/sport_replay"/>
+    </group>
+
+    <item android:title="@string/additional">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help"
+                android:title="@string/help"/>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="@string/logout"/>
+        </menu>
+    </item>
+
+</menu>

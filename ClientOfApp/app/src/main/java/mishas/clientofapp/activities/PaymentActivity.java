@@ -1,12 +1,15 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import mishas.clientofapp.R;
@@ -22,7 +25,7 @@ public class PaymentActivity extends AppCompatActivity {
     private EditText holderCard;
     private EditText ccvCard;
 
-    private Button pay;
+    private LinearLayout pay;
     private BankCard card;
 
     private void init() {
@@ -32,7 +35,7 @@ public class PaymentActivity extends AppCompatActivity {
         holderCard = (EditText) findViewById(R.id._holderCard);
         ccvCard = (EditText) findViewById(R.id._ccvTxt);
 
-        pay = (Button) findViewById(R.id.pay);
+        pay = (LinearLayout) findViewById(R.id.pay);
         card = Administrator.cards.get(0);
     }
 
@@ -50,6 +53,8 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
+        setTitle("Оплата");
         init();
         ifHasCard();
         pay.setOnClickListener(new OnClickListener() {
@@ -64,7 +69,7 @@ public class PaymentActivity extends AppCompatActivity {
                 else {
                     if (Payment.isPaid()) {
                         startActivity(new Intent(PaymentActivity.this, ChoiceShopActivity.class));
-                        Toast.makeText(getApplicationContext(), "Your order is successfully paid!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Заказ успешно опалчен!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

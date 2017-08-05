@@ -77,7 +77,7 @@ public final class Administrator {
         prices.put(ProductType.WATER, 100);
         prices.put(ProductType.JUICE, 150);
         prices.put(ProductType.BALL, 500);
-        prices.put(ProductType.T_SHITRT, 500);
+        prices.put(ProductType.T_SHIRT, 500);
         prices.put(ProductType.MAGNET, 100);
         prices.put(ProductType.FLAG, 250);
         return prices;
@@ -93,7 +93,7 @@ public final class Administrator {
         products.put(ProductType.WATER, 0);
         products.put(ProductType.JUICE, 0);
         products.put(ProductType.BALL, 0);
-        products.put(ProductType.T_SHITRT, 0);
+        products.put(ProductType.T_SHIRT, 0);
         products.put(ProductType.MAGNET, 0);
         products.put(ProductType.FLAG, 0);
     }

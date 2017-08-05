@@ -2,6 +2,8 @@ package mishas.clientofapp.activities;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,12 +36,14 @@ public class SignUpPart1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_part1);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
+        setTitle("Регистрация");
         init();
         signUp1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (passwordTxt.getText().toString().equals(confirmPasswordTxt.getText().toString())) {
-                    Intent intent = new Intent(SignUpPart1Activity.this, SignUpPart2Activity.class);
+                    Intent intent = new Intent(SignUpPart1Activity.this, SignUpPart3Activity.class);
                     intent.putExtra("id", new Random().nextLong());
                     intent.putExtra("login", loginTxt.getText().toString());
                     intent.putExtra("password", passwordTxt.getText().toString());

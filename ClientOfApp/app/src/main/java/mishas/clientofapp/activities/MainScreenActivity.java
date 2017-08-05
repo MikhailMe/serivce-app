@@ -1,6 +1,8 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.Arrays;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.fragments.FoodFragment;
@@ -26,12 +31,23 @@ import mishas.clientofapp.logic.Order;
 public class MainScreenActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnClickListener {
 
-    private FoodFragment foodFr;
-    private SouvenirsFragment souvenirsFr;
-    private SportsReplayFragment sportsReplayFr;
-    private HelpFragment helpFr;
-
-    private FragmentTransaction frTransaction;
+    ListView list;
+    EventCustomList adapter;
+    String[] web = {
+            "Матч чемпионата мира по футболу",
+            "Белый лебедь в Мариинском театре",
+            "Выступление рок-группы RCHP",
+    };
+    String[] web_def = {
+            "19.09.2017",
+            "1.09.2017 - 31.09.2017",
+            "6.09.2017",
+    };
+    Integer[] imageId = {
+            R.drawable.football,
+            R.drawable.theatre,
+            R.drawable.concert,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +62,29 @@ public class MainScreenActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        //?attr/colorPrimary
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         Administrator.currentOrder = new Order();
-        foodFr = new FoodFragment();
-        souvenirsFr = new SouvenirsFragment();
-        sportsReplayFr = new SportsReplayFragment();
-        helpFr = new HelpFragment();
-
-        Button food = (Button) findViewById(R.id.food_btn);
-        food.setOnClickListener(this);
-        Button souvenirs = (Button) findViewById(R.id.souvenirs_btn);
-        souvenirs.setOnClickListener(this);
-        Button replay = (Button) findViewById(R.id.replay_btn);
-        replay.setOnClickListener(this);
-        Button bag = (Button) findViewById(R.id.bag_btn);
-        bag.setOnClickListener(this);
+        setTitle("События");
+        adapter = new EventCustomList(this, web, web_def, imageId);
+        list = (ListView)findViewById(R.id.main_screen_list);
+        list.setAdapter(adapter);
+//        foodFr = new FoodFragment();
+//        souvenirsFr = new SouvenirsFragment();
+//        sportsReplayFr = new SportsReplayFragment();
+//        helpFr = new HelpFragment();
+//
+//        Button food = (Button) findViewById(R.id.food_btn);
+//        food.setOnClickListener(this);
+//        Button souvenirs = (Button) findViewById(R.id.souvenirs_btn);
+//        souvenirs.setOnClickListener(this);
+//        Button replay = (Button) findViewById(R.id.replay_btn);
+//        replay.setOnClickListener(this);
+//        Button bag = (Button) findViewById(R.id.bag_btn);
+//        bag.setOnClickListener(this);
     }
 
     @Override
@@ -70,12 +92,10 @@ public class MainScreenActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
     }
 
-   @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
@@ -101,26 +121,16 @@ public class MainScreenActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        frTransaction = getSupportFragmentManager().beginTransaction();
-
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_food:
-                frTransaction.replace(R.id.container, foodFr);
-                break;
-            case R.id.nav_souvenirs:
-                frTransaction.replace(R.id.container, souvenirsFr);
-                break;
-            case R.id.nav_sports_replay:
-                frTransaction.replace(R.id.container, sportsReplayFr);
-                break;
-            case R.id.nav_help:
-                frTransaction.replace(R.id.container, helpFr);
-                break;
+                //frTransaction.replace(R.id.container, foodFr);
+                Intent intent = new Intent(this, FoodActivity.class);
+                intent.putExtra("from", "main");
+                startActivity(intent);
             case R.id.nav_logout:
                 startActivity(new Intent(this, StartActivity.class));
                 break;
         }
-        frTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -129,26 +139,20 @@ public class MainScreenActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        frTransaction = getSupportFragmentManager().beginTransaction();
-        switch (v.getId()) {
-            case R.id.food_btn: {
-                frTransaction.replace(R.id.container, foodFr);
-                break;
-            }
-            case R.id.souvenirs_btn: {
-                frTransaction.replace(R.id.container, souvenirsFr);
-                break;
-            }
-            case R.id.replay_btn: {
-                frTransaction.replace(R.id.container, sportsReplayFr);
-                break;
-            }
-            case R.id.bag_btn: {
-                startActivity(new Intent(this, BagActivity.class));
-                break;
-            }
-        }
-        frTransaction.commit();
+//        switch (v.getId()) {
+//            case R.id.food_btn: {
+//                //frTransaction.replace(R.id.container, foodFr);
+//                Intent intent = new Intent(this, FoodActivity.class);
+//                intent.putExtra("from", "main");
+//                startActivity(intent);
+//
+//                break;
+//            }
+//            case R.id.bag_btn: {
+//                startActivity(new Intent(this, BagActivity.class));
+//                break;
+//            }
+//        }
     }
 
     @Override

@@ -1,8 +1,11 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,15 +41,15 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
         skip = (Button) findViewById(R.id.skip);
     }
 
-    private void createUser(){
+    private void createUser() {
         _user = new User(getIntent().getLongExtra("id", id),
                 getIntent().getStringExtra("login"),
                 getIntent().getStringExtra("password"),
                 getIntent().getStringExtra("email"),
-                getIntent().getStringExtra("name"),
-                getIntent().getStringExtra("surname"),
-                getIntent().getIntExtra("age", 0),
-                getIntent().getStringExtra("telephone"), true);
+                "default",
+                "default",
+                18,
+                "default", false);
         id++;
     }
 
@@ -62,6 +65,8 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_part3);
+        setTitle("Карта");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         init();
         createUser();
         addCard.setOnClickListener(this);
@@ -96,13 +101,40 @@ public class SignUpPart3Activity extends AppCompatActivity implements OnClickLis
                 // добавляем админу юзверя (бд)
                 Administrator.currentUser = _user;
                 Administrator.users.add(_user);
-                startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
+                //startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
+                Intent intent = new Intent(SignUpPart3Activity.this, SignInActivity.class);
+                intent.putExtra("id", _user.getId());
+                intent.putExtra("login", _user.getLogin());
+                intent.putExtra("password", _user.getPassword());
+                intent.putExtra("email", _user.getEmail());
+                intent.putExtra("name", _user.getName());
+                intent.putExtra("surname", _user.getSurname());
+                intent.putExtra("age", _user.getAge());
+                intent.putExtra("telephone", _user.getTelephone());
+                intent.putExtra("number", number);
+                intent.putExtra("month", month);
+                intent.putExtra("year", year);
+                intent.putExtra("holder", holder);
+                intent.putExtra("ccv", ccv);
+                startActivity(intent);
                 break;
             }
             case R.id.skip:
                 Administrator.currentUser = _user;
                 Administrator.users.add(_user);
-                startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
+                Log.d("userdata", _user.getLogin() + "" + _user.getPassword());
+                //startActivity(new Intent(SignUpPart3Activity.this, SignInActivity.class));
+                Intent intent = new Intent(SignUpPart3Activity.this, SignInActivity.class);
+                intent.putExtra("id", _user.getId());
+                intent.putExtra("login", _user.getLogin());
+                intent.putExtra("password", _user.getPassword());
+                intent.putExtra("email", _user.getEmail());
+                intent.putExtra("name", _user.getName());
+                intent.putExtra("surname", _user.getSurname());
+                intent.putExtra("age", _user.getAge());
+                intent.putExtra("telephone", _user.getTelephone());
+                intent.putExtra("number", "");
+                startActivity(intent);
                 break;
         }
     }

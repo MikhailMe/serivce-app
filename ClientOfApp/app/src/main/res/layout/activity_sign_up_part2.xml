@@ -12,7 +12,7 @@
         android:text="@string/signUp_message2"
         android:gravity="center"
         android:textSize="20sp"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
         android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/nameTvUp"
         android:layout_centerHorizontal="true"
         android:inputType="text"/>
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:text="@string/nameTxt"
         android:layout_below="@+id/registration_part2"
         android:layout_marginTop="50dp"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/surnameTvUp"
         android:layout_centerHorizontal="true"
         android:inputType="text"/>
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:text="@string/surnameTxt"
         android:layout_below="@+id/nameTxtUp"
         android:layout_centerHorizontal="true"/>
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/ageTvUp"
         android:layout_centerHorizontal="true"
         android:inputType="number"/>
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:text="@string/AgeTxt"
         android:layout_below="@+id/surnameTxtUp"
         android:layout_centerHorizontal="true" />
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:layout_below="@+id/telephoneTvUp"
         android:layout_centerHorizontal="true"
         android:inputType="phone|number"/>
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:text="@string/telephoneTxt"
         android:layout_below="@+id/ageTxtUp"
         android:layout_centerHorizontal="true" />

@@ -1,20 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mishas.clientofapp.activities.ChoiceShopActivity"
-    android:background="@color/colorBackground">
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="mishas.clientofapp.activities.ChoiceShopActivity">
 
 
-    <Button
-        android:id="@+id/sendToServingApp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="134dp"
+            android:background="@drawable/zenit">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/button5"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="53dp"
+                android:background="@drawable/round_button"
+                android:text=""
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="26dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
+                android:layout_toEndOf="@+id/button"
+                android:layout_toRightOf="@+id/button"
+                android:background="@drawable/main_pink_round_button"
+                android:text=""
+                tools:layout_editor_absoluteX="190dp"
+                tools:layout_editor_absoluteY="143dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_above="@+id/button4"
+                android:layout_marginBottom="15dp"
+                android:layout_toLeftOf="@+id/button5"
+                android:layout_toStartOf="@+id/button5"
+                android:background="@drawable/main_pink_round_button"
+                android:text=""
+                tools:layout_editor_absoluteX="113dp"
+                tools:layout_editor_absoluteY="327dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_toLeftOf="@+id/button2"
+                android:layout_toStartOf="@+id/button2"
+                android:background="@drawable/main_pink_round_button"
+                android:text=""
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="97dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/button3"
+                android:layout_alignBottom="@+id/button3"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/main_sea_round_button"
+                android:text=""
+                tools:layout_editor_absoluteX="267dp"
+                tools:layout_editor_absoluteY="293dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/send"/>
-</RelativeLayout>
+        android:background="@drawable/button_back"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/back_to_card"
+            android:background="@drawable/button_back">
+
+            <ImageView
+                android:id="@+id/back_to_pay"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginStart="55dp"
+                android:background="@drawable/back_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/sendToServingApp">
+
+            <ImageView
+                android:id="@+id/next_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginStart="55dp"
+                android:background="@drawable/next" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

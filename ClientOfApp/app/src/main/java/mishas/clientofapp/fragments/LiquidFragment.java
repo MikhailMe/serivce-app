@@ -3,6 +3,7 @@ package mishas.clientofapp.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.activities.BagActivity;
+import mishas.clientofapp.activities.MainScreenActivity;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.ProductType;
 
@@ -137,6 +139,18 @@ public class LiquidFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), BagActivity.class));
+            }
+        });
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    startActivity(new Intent(getActivity(), MainScreenActivity.class));
+                    return true;
+                }
+                return false;
             }
         });
         return v;

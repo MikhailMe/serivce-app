@@ -40,7 +40,7 @@ public class SignUpPart2Activity extends AppCompatActivity{
                 intent.putExtra("email", getIntent().getStringExtra("email"));
                 intent.putExtra("name", nameTxt.getText().toString());
                 intent.putExtra("surname", surnameTxt.getText().toString());
-                intent.putExtra("age", ageTxt.getText().toString());
+                intent.putExtra("age", Integer.parseInt(ageTxt.getText().toString()));
                 intent.putExtra("telephone", telephoneTxt.getText().toString());
                 startActivity(intent);
             }

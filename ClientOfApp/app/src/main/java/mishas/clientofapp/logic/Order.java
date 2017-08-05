@@ -1,6 +1,8 @@
 package mishas.clientofapp.logic;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class Order {
@@ -10,6 +12,25 @@ public final class Order {
     public boolean isPaid;  // оплачен и готов к отправке в магазин
     public boolean isDelivered; // заказ забрали - удаляется по этому флагу
     public boolean isMade; // можно забирать
+
+    private List<ProductType> list = Arrays.asList(ProductType.HOT_DOG,
+            ProductType.HAMBURGER,
+            ProductType.HOT_CORN,
+            ProductType.CHIPS,
+            ProductType.TEA,
+            ProductType.COFFEE,
+            ProductType.WATER,
+            ProductType.JUICE);
+    private String[] productArray = {
+            "Хот-дог",
+            "Гамбургер",
+            "Кукуруза",
+            "Чипсы",
+            "Чай",
+            "Кофе",
+            "Вода",
+            "Сок"
+    };
 
     public Order() {
         this.products = new HashMap<>();
@@ -30,9 +51,9 @@ public final class Order {
                 amount = product.getValue();
                 curSum = curProduct.getPrice() * amount;
                 sum += curSum;
-                sb.append(curProduct.getType()).append(" x ").append(amount).append(" = ").append(curSum).append("\n");
+                sb.append(productArray[list.indexOf(curProduct.getType())]).append(" x ").append(amount).append(" = ").append(curSum).append(" ₽").append("\n");
             }
-            sb.append("----------------------------------------\n").append("The sum of your order is ").append(sum).append("rub");
+            sb.append("----------------------------------------\n").append("Сумма вашего заказа - ").append(sum).append("\u20BD");
             return sb.toString();
         }
     }

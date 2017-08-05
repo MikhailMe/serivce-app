@@ -11,8 +11,9 @@ public enum ProductType {
     WATER,
     JUICE,
     BALL,
-    T_SHITRT,
+    T_SHIRT,
     MAGNET,
     FLAG;
+
 
 }

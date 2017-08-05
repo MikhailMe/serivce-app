@@ -273,12 +273,13 @@
 
     <Button
         android:id="@+id/viewOrder2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
+        android:layout_marginLeft="150dp"
+        android:layout_marginBottom="1dp"
         android:text="@string/view_order"
         android:layout_below="@+id/juiceImg"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"/>
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

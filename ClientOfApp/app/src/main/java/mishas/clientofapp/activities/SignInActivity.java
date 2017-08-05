@@ -1,15 +1,20 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
+import mishas.clientofapp.logic.BankCard;
 import mishas.clientofapp.logic.User;
 
 public class SignInActivity extends AppCompatActivity {
@@ -17,7 +22,9 @@ public class SignInActivity extends AppCompatActivity {
     private EditText loginTxt;
     private EditText passwordTxt;
     private Button signIn;
-    private Button forgotPassword;
+    private Button signUp;
+    private TextView forgotPassword;
+    //private User _user;
     private Administrator admin;
 
     //private DBHelper dbHelper;
@@ -26,7 +33,8 @@ public class SignInActivity extends AppCompatActivity {
         loginTxt = (EditText) findViewById(R.id.loginTxtIn);
         passwordTxt = (EditText) findViewById(R.id.passwordTxtIn);
         signIn = (Button) findViewById(R.id.letsSignIn);
-        forgotPassword = (Button) findViewById(R.id.forgotPassword);
+        signUp = (Button) findViewById(R.id.signUp);
+        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         //dbHelper = new DBHelper(this);
     }
 
@@ -34,7 +42,10 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
+        setTitle("App");
         init();
+        //createUser();
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +57,11 @@ public class SignInActivity extends AppCompatActivity {
                 boolean isRegistered = false;
                 String login = loginTxt.getText().toString();
                 String password = passwordTxt.getText().toString();
-
+                Log.d("login", login);
+                Log.d("pass", password);
+                for (User user : Administrator.users) {
+                    Log.d("usersdata", user.getLogin() + " " + user.getPassword());
+                }
                 for (User user : Administrator.users) {
                     if (login.equals(user.getLogin()) && password.equals(user.getPassword())) {
                         Administrator.currentUser = user;
@@ -89,6 +104,12 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(new Intent(SignInActivity.this, RecoveryPasswordActivity.class));
             }
         });
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, SignUpPart1Activity.class));
+            }
+        });
     }
 
     @Override
@@ -98,7 +119,27 @@ public class SignInActivity extends AppCompatActivity {
         System.gc();
         admin = new Administrator();
     }
-
+//    private void createUser() {
+//        _user = new User(getIntent().getLongExtra("id", 0L),
+//                getIntent().getStringExtra("login"),
+//                getIntent().getStringExtra("password"),
+//                getIntent().getStringExtra("email"),
+//                getIntent().getStringExtra("name"),
+//                getIntent().getStringExtra("surname"),
+//                getIntent().getIntExtra("age", 0),
+//                getIntent().getStringExtra("telephone"), true);
+//        Administrator.users.add(_user);
+//        if (!getIntent().getStringExtra("number").equals("")) {
+//            Administrator.cards.add(new BankCard(_user.getId(),
+//                    getIntent().getStringExtra("number"),
+//                    getIntent().getIntExtra("month", 0),
+//                    getIntent().getIntExtra("year", 0),
+//                    getIntent().getStringExtra("holder"),
+//                    getIntent().getIntExtra("ccv", 0)));
+//            _user.setHasCard(true);
+//        }
+//
+//    }
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);

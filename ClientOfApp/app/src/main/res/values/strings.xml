@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ClientOfApp</string>
-    <string name="loginTxt">Login:</string>
-    <string name="passwordTxt">Password:</string>
-    <string name="confirmPasswordTxt">Confirm password:</string>
+    <string name="loginTxt">Логин:</string>
+    <string name="passwordTxt">Пароль:</string>
+    <string name="confirmPasswordTxt">Подтверждение пароля:</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
     <string name="welcome_string">Welcome</string>

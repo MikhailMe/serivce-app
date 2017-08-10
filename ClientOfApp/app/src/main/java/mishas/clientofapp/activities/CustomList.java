@@ -49,7 +49,7 @@ public class CustomList extends ArrayAdapter<String>{
                     textView.setText(number - 1 + "");
                     currentOrder[position] = textView.getText().toString();
                     rubles.setText(Integer.parseInt(rubles.getText().toString().split("\\ ")[0]) -
-                            Integer.parseInt(web[position].substring(web[position].indexOf(" ") + 3, web[position].length() - 1)) + " \u20BD");
+                            Integer.parseInt(web[position].substring(web[position].indexOf(" ") + 3, web[position].length() - 4)) + " руб");
                 }
             }
         });
@@ -61,7 +61,7 @@ public class CustomList extends ArrayAdapter<String>{
                 textView.setText(number + 1 + "");
                 currentOrder[position] = textView.getText().toString();
                 rubles.setText(Integer.parseInt(rubles.getText().toString().split("\\ ")[0]) +
-                        Integer.parseInt(web[position].substring(web[position].indexOf(" ") + 3, web[position].length() - 1)) + " \u20BD");
+                        Integer.parseInt(web[position].substring(web[position].indexOf(" ") + 3, web[position].length() - 4)) + " руб");
             }
         });
         txtTitle.setText(web[position]);

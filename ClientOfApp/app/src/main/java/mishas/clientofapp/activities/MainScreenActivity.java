@@ -122,11 +122,6 @@ public class MainScreenActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-            case R.id.nav_food:
-                //frTransaction.replace(R.id.container, foodFr);
-                Intent intent = new Intent(this, FoodActivity.class);
-                intent.putExtra("from", "main");
-                startActivity(intent);
             case R.id.nav_logout:
                 startActivity(new Intent(this, StartActivity.class));
                 break;

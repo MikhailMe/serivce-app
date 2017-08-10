@@ -31,7 +31,7 @@
             android:gravity="center"
             android:text="Номер карты:" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/numberOfCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,8 +42,8 @@
             android:shadowColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textColorLink="@android:color/black"
-            android:backgroundTint="@android:color/darker_gray"
-            android:textCursorDrawable="@android:color/black"
+            app:backgroundTint="@android:color/darker_gray"
+            android:textCursorDrawable="@null"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:gravity="center"
             android:text="Карта до:" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/monthOfCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,11 +71,11 @@
             android:shadowColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textColorLink="@android:color/black"
-            android:backgroundTint="@android:color/darker_gray"
-            android:textCursorDrawable="@android:color/black"
+            app:backgroundTint="@android:color/darker_gray"
+            android:textCursorDrawable="@null"
             android:textSize="15sp" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/yearOfCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,8 +86,8 @@
             android:shadowColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textColorLink="@android:color/black"
-            android:backgroundTint="@android:color/darker_gray"
-            android:textCursorDrawable="@android:color/black"
+            app:backgroundTint="@android:color/darker_gray"
+            android:textCursorDrawable="@null"
             android:textSize="15sp" />
         <Space
             android:layout_width="match_parent"
@@ -116,7 +116,7 @@
             android:gravity="center"
             android:text="Владелец:" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/holderCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,8 +126,8 @@
             android:shadowColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textColorLink="@android:color/black"
-            android:backgroundTint="@android:color/darker_gray"
-            android:textCursorDrawable="@android:color/black"
+            app:backgroundTint="@android:color/darker_gray"
+            android:textCursorDrawable="@null"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -148,7 +148,7 @@
             android:gravity="center"
             />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/ccvTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -160,8 +160,8 @@
             android:shadowColor="@android:color/black"
             android:textColorHint="@android:color/black"
             android:textColorLink="@android:color/black"
-            android:backgroundTint="@android:color/darker_gray"
-            android:textCursorDrawable="@android:color/black"
+            app:backgroundTint="@android:color/darker_gray"
+            android:textCursorDrawable="@null"
             />
         <Space
             android:layout_width="match_parent"

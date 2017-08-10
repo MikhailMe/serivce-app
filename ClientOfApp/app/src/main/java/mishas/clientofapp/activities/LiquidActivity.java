@@ -26,10 +26,10 @@ public class LiquidActivity extends AppCompatActivity {
     CustomList adapter;
     String[] currentOrder = {"0", "0", "0", "0", "0", "0", "0", "0"};
     String[] web = {
-            "Чай - 100\u20BD",
-            "Кофе - 150\u20BD",
-            "Вода - 100\u20BD",
-            "Сок - 120\u20BD"
+            "Чай - 100 руб",
+            "Кофе - 150 руб",
+            "Вода - 100 руб",
+            "Сок - 120 руб"
     };
     ProductType[] type =
             {ProductType.HOT_DOG, ProductType.HOT_CORN, ProductType.HAMBURGER, ProductType.CHIPS,

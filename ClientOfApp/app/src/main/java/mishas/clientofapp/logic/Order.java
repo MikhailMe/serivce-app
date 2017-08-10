@@ -51,9 +51,9 @@ public final class Order {
                 amount = product.getValue();
                 curSum = curProduct.getPrice() * amount;
                 sum += curSum;
-                sb.append(productArray[list.indexOf(curProduct.getType())]).append(" x ").append(amount).append(" = ").append(curSum).append(" ₽").append("\n");
+                sb.append(productArray[list.indexOf(curProduct.getType())]).append(" x ").append(amount).append(" = ").append(curSum).append(" руб").append("\n");
             }
-            sb.append("----------------------------------------\n").append("Сумма вашего заказа - ").append(sum).append("\u20BD");
+            sb.append("----------------------------------------\n").append("Сумма вашего заказа - ").append(sum).append("руб");
             return sb.toString();
         }
     }

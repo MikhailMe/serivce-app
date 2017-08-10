@@ -32,10 +32,10 @@ public class FoodActivity extends AppCompatActivity {
             {ProductType.HOT_DOG, ProductType.HOT_CORN, ProductType.HAMBURGER, ProductType.CHIPS,
                     ProductType.TEA, ProductType.COFFEE, ProductType.WATER, ProductType.JUICE};
     String[] web = {
-            "Хот-дог - 100\u20BD",
-            "Кукуруза - 50\u20BD",
-            "Гамбургер - 150\u20BD",
-            "Чипсы - 100\u20BD"
+            "Хот-дог - 100 руб",
+            "Кукуруза - 50 руб",
+            "Гамбургер - 150 руб",
+            "Чипсы - 100 руб"
     };
     Integer[] imageId = {
             R.mipmap.hotdog,

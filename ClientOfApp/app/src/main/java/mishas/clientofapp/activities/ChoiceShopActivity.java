@@ -132,6 +132,9 @@ public class ChoiceShopActivity extends AppCompatActivity {
                         textToast.setGravity(Gravity.CENTER, 0, 0);
                         textToast.show();
                         counter++;
+                        Intent intent = new Intent(ChoiceShopActivity.this, MainScreenActivity.class);
+                        intent.putExtra("from", "shop");
+                        startActivity(intent);
                         break;
                     }
                 if (counter == 0) {

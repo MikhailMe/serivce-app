@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import mishas.clientofapp.R;
 
-public class EventCustomList extends ArrayAdapter<String> {
+class EventCustomList extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] web;
     private final String[] web_def;
     private final Integer[] imageId;
 
-    public EventCustomList(Activity context,
+    EventCustomList(Activity context,
                            String[] web, String[] web_def, Integer[] imageId) {
         super(context, R.layout.my_custom_list, web);
         this.context = context;

@@ -23,11 +23,9 @@ public class StartingActivity extends AppCompatActivity {
     private Button signIn;
     private Button signUp;
     private TextView forgotPassword;
-    private Administrator admin;
 
     private void init() {
-        admin = Administrator.getAdmin();
-
+        Administrator.getAdmin();
         loginTxt = (EditText) findViewById(R.id.loginTxtIn);
         passwordTxt = (EditText) findViewById(R.id.passwordTxtIn);
         signIn = (Button) findViewById(R.id.letsSignIn);
@@ -40,18 +38,14 @@ public class StartingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
-        setTitle("");
-
+        setTitle("Welcome!");
         init();
-
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isRegistered = false;
                 String login = loginTxt.getText().toString();
                 String password = passwordTxt.getText().toString();
-                Log.d("login", login);
-                Log.d("pass", password);
                 for (User user : Administrator.users) {
                     if (login.equals(user.getLogin()) && password.equals(user.getPassword())) {
                         Administrator.currentUser = user;
@@ -60,6 +54,9 @@ public class StartingActivity extends AppCompatActivity {
                     }
                 }
                 if (isRegistered) {
+                    Log.d("INFO_ABOUT_USER", "id: " + Administrator.currentUser.getId() +
+                            " | login: " + Administrator.currentUser.getLogin() +
+                            " | password: " + Administrator.currentUser.getPassword());
                     startActivity(new Intent(StartingActivity.this, MainScreenActivity.class));
                 } else {
                     loginTxt.setText("");
@@ -86,12 +83,7 @@ public class StartingActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

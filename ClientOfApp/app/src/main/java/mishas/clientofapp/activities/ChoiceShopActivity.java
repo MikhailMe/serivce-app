@@ -146,11 +146,4 @@ public class ChoiceShopActivity extends AppCompatActivity {
             }
         });
     }
-
-
-    // FIXME
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(this, MainScreenActivity.class));
-    }
 }

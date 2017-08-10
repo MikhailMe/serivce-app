@@ -41,11 +41,12 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
     }
 
     private void createUser(boolean hasCard) {
-        _user = new User(getIntent().getLongExtra("id", Administrator.currentUserId),
+        _user = new User(Administrator.currentUserId,
                 getIntent().getStringExtra("login"),
                 getIntent().getStringExtra("password"),
                 getIntent().getStringExtra("email"),
                 hasCard);
+        Log.d("INFO_ABOUT_USER", "id: " + _user.getId() + " | login: " + _user.getLogin() + " | password: " + _user.getPassword());
         Administrator.currentUserId++;
     }
 
@@ -57,7 +58,8 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
         Administrator.currentUser = _user;
 
         // выводим данные о юзвере в лог
-        Log.d("USER_DATA:   ", "login: " + _user.getLogin() + "|   password: " + _user.getPassword());
+        Log.d("USER_DATA:   ",
+                "id: " + _user.getId() + " |   login: " + _user.getLogin() + " |   password: " + _user.getPassword());
 
         // переходим на стартовую активити
         startActivity(new Intent(SignUpPart2Activity.this, StartingActivity.class));
@@ -66,7 +68,7 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_part3);
+        setContentView(R.layout.activity_sign_up_part2);
         setTitle("Карта");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         init();
@@ -95,6 +97,8 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
                         ccvCard.getText().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля!", Toast.LENGTH_SHORT).show();
                 } else {
+                    // создаем юзверя, true - карта есть
+                    createUser(true);
                     // добавляем карту в epic database
                     Administrator.cards.add(new BankCard(_user.getId(),
                             numberCard.getText().toString(),
@@ -102,9 +106,6 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
                             Integer.parseInt(yearCard.getText().toString()),
                             holderCard.getText().toString(),
                             Integer.parseInt(ccvCard.getText().toString())));
-
-                    // создаем юзверя, true - карта есть
-                    createUser(true);
                     // кидаем юзверя админу
                     setUser();
                 }

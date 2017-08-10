@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Random;
-
 import mishas.clientofapp.R;
 
 public class SignUpPart1Activity extends AppCompatActivity {
@@ -43,7 +41,6 @@ public class SignUpPart1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if (passwordTxt.getText().toString().equals(confirmPasswordTxt.getText().toString())) {
                     Intent intent = new Intent(SignUpPart1Activity.this, SignUpPart2Activity.class);
-                    intent.putExtra("id", new Random().nextLong());
                     intent.putExtra("login", loginTxt.getText().toString());
                     intent.putExtra("password", passwordTxt.getText().toString());
                     intent.putExtra("email", emailTxt.getText().toString());

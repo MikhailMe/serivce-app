@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import mishas.clientofapp.R;
 
-public class CustomList extends ArrayAdapter<String>{
+class CustomList extends ArrayAdapter<String>{
 
     private final Activity context;
     private final String[] web;
     private final Integer[] imageId;
     private TextView rubles;
     private String[] currentOrder = {"0", "0", "0", "0"};
-    public CustomList(Activity context,
+    CustomList(Activity context,
                       String[] web, Integer[] imageId, TextView rubles, String[] currentOrder) {
         super(context, R.layout.my_custom_list, web);
         this.context = context;

@@ -73,9 +73,7 @@ public class LiquidActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < adapter.getCurrentOrder().length; i++) {
-                    currentOrder[i + 4] = adapter.getCurrentOrder()[i];
-                }
+                System.arraycopy(adapter.getCurrentOrder(), 0, currentOrder, 4, adapter.getCurrentOrder().length);
                 Administrator.products.clear();
                 for (int i = 0; i < currentOrder.length; i++)
                     if (!currentOrder[i].equals("0"))
@@ -90,9 +88,7 @@ public class LiquidActivity extends AppCompatActivity {
                 Intent intent = new Intent(LiquidActivity.this, FoodActivity.class);
                 intent.putExtra("from", "liquid");
                 intent.putExtra("money", tv.getText().toString());
-                for (int i = 0; i < adapter.getCurrentOrder().length; i++) {
-                    currentOrder[i + 4] = adapter.getCurrentOrder()[i];
-                }
+                System.arraycopy(adapter.getCurrentOrder(), 0, currentOrder, 4, adapter.getCurrentOrder().length);
                 intent.putExtra("order", currentOrder);
                 startActivity(intent);
             }

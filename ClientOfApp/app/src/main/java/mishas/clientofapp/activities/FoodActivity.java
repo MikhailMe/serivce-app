@@ -63,9 +63,7 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FoodActivity.this, BagActivity.class));
-                for (int i = 0; i < adapter.getCurrentOrder().length; i++) {
-                    currentOrder[i] = adapter.getCurrentOrder()[i];
-                }
+                System.arraycopy(adapter.getCurrentOrder(), 0, currentOrder, 0, adapter.getCurrentOrder().length);
                 Administrator.products.clear();
                 for (int i = 0; i < currentOrder.length; i++)
                     if (!currentOrder[i].equals("0"))
@@ -79,9 +77,7 @@ public class FoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FoodActivity.this, LiquidActivity.class);
                 intent.putExtra("money", tv.getText().toString());
-                for (int i = 0; i < adapter.getCurrentOrder().length; i++) {
-                    currentOrder[i] = adapter.getCurrentOrder()[i];
-                }
+                System.arraycopy(adapter.getCurrentOrder(), 0, currentOrder, 0, adapter.getCurrentOrder().length);
                 intent.putExtra("order", currentOrder);
                 startActivity(intent);
             }

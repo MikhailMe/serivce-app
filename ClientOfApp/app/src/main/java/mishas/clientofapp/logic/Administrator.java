@@ -22,12 +22,12 @@ public final class Administrator {
     }
 
     public static Map<ProductType, Integer> products;
-    public static Map<ProductType, Integer> prices;
+    private static Map<ProductType, Integer> prices;
     public static List<User> users;
     public static List<BankCard> cards;
     public static User currentUser;
     public static Order currentOrder;
-    public static long currentUserId = 5;
+    public static long currentUserId;
 
     private Administrator() {
         products = new HashMap<>();
@@ -38,6 +38,7 @@ public final class Administrator {
         prices();
         addSomeUsers();
         addBankCardsForUsers();
+        currentUserId = 5L;
     }
 
     private static String generatePassword() {

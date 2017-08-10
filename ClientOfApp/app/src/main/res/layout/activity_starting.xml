@@ -73,7 +73,6 @@
 
         android:id="@+id/letsSignIn"
         android:layout_weight="1"
-
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@drawable/behind"

@@ -58,5 +58,9 @@
                             To see what you have already chosen you can in the bag.</string>
     <string name="payment">If you already filled in the card data, click "pay" otherwise fill in the card details and click "pay"</string>
     <string name="pay">PAY</string>
+    <string name="profile">Профиль</string>
+    <string name="my_order">Мой заказ</string>
+    <string name="payment_methods">Способы оплаты</string>
+    <string name="exit">Выход</string>
 
 </resources>

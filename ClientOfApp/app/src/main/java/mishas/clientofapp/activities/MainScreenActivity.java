@@ -10,16 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.Order;
 
 public class MainScreenActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     ListView list;
     EventCustomList adapter;
@@ -90,7 +91,14 @@ public class MainScreenActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_logout:
+            case R.id.profile:
+                break;
+            case R.id.my_order:
+                Toast.makeText(getApplicationContext(), "Номер вашего заказа: " + new Random().nextInt(100), Toast.LENGTH_LONG).show();
+                break;
+            case R.id.payment_methods:
+                break;
+            case R.id.exit:
                 startActivity(new Intent(this, StartingActivity.class));
                 break;
         }
@@ -98,9 +106,5 @@ public class MainScreenActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onClick(View v) {
     }
 }

@@ -3,21 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
+            android:id="@+id/profile"
             android:icon="@drawable/home"
-            android:title="Кабинет"/>
+            android:title="@string/profile"/>
         <item
-            android:id="@+id/order"
+            android:id="@+id/my_order"
             android:icon="@drawable/order"
-            android:title="Мой заказ"/>
+            android:title="@string/my_order"/>
         <item
-            android:id="@+id/payment"
+            android:id="@+id/payment_methods"
             android:icon="@drawable/payment"
-            android:title="Оплата"/>
+            android:title="@string/payment_methods"/>
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/exit"
             android:icon="@drawable/logout"
-            android:title="Выход"/>
+            android:title="@string/exit"/>
     </group>
 
 </menu>

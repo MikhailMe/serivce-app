@@ -31,13 +31,14 @@
         <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="+"
+            android:text="-"
+            android:id="@+id/minus_button"
             android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/behind"
-            android:id="@+id/plus_button"/>
+            />
 
         <TextView
             android:layout_width="20dp"
@@ -49,13 +50,13 @@
         <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="-"
+            android:text="+"
+            android:id="@+id/plus_button"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:background="@drawable/behind"
-            android:id="@+id/minus_button"
             android:layout_marginRight="5dp"
             android:layout_marginEnd="5dp"/>
     </LinearLayout>

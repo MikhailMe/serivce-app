@@ -7,7 +7,6 @@ public final class BankCard {
     private String number;
     private int month;
     private int  year;
-
     private String name;
     private int ccv;
 

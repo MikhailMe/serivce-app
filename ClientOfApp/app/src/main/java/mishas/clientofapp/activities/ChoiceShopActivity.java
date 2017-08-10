@@ -3,7 +3,6 @@ package mishas.clientofapp.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -13,18 +12,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.Client;
-
-import static android.R.id.message;
 
 public class ChoiceShopActivity extends AppCompatActivity {
 
@@ -120,14 +113,13 @@ public class ChoiceShopActivity extends AppCompatActivity {
         send.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Client client = new Client("192.168.1.101", 9898);
                 int counter = 0;
                 for (boolean b : button_clicked)
                     if (b) {
                         Client client = new Client("192.168.137.131", 11100);
                         client.sendRequest(Administrator.currentOrder.makeSendString());
                         Toast textToast = Toast.makeText(ChoiceShopActivity.this,
-                                "The order is sent, please wait",
+                                "Заказ отправлен, информацию о заказе Вы сможете найти в пункте меню \"Мой заказ\"",
                                 Toast.LENGTH_LONG);
                         textToast.setGravity(Gravity.CENTER, 0, 0);
                         textToast.show();
@@ -139,7 +131,7 @@ public class ChoiceShopActivity extends AppCompatActivity {
                     }
                 if (counter == 0) {
                     Toast textToast = Toast.makeText(ChoiceShopActivity.this,
-                            "Choose the shop please",
+                            "Пожалуйста, выберите магазин",
                             Toast.LENGTH_LONG);
                     textToast.setGravity(Gravity.CENTER, 0, 0);
                     textToast.show();
@@ -155,39 +147,10 @@ public class ChoiceShopActivity extends AppCompatActivity {
         });
     }
 
+
+    // FIXME
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, MainScreenActivity.class));
-    }
-
-    private class MyAsyncTask extends AsyncTask<Void, String, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(3000);
-                            Socket socket = new Socket("192.168.1.101", 9898);
-                            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                            out.println(message);
-
-                        } catch (IOException | InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(String... params) {
-            super.onProgressUpdate(params);
-        }
     }
 }

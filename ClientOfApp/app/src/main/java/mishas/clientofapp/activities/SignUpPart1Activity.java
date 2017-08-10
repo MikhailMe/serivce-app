@@ -1,6 +1,5 @@
 package mishas.clientofapp.activities;
 
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -43,7 +42,7 @@ public class SignUpPart1Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (passwordTxt.getText().toString().equals(confirmPasswordTxt.getText().toString())) {
-                    Intent intent = new Intent(SignUpPart1Activity.this, SignUpPart3Activity.class);
+                    Intent intent = new Intent(SignUpPart1Activity.this, SignUpPart2Activity.class);
                     intent.putExtra("id", new Random().nextLong());
                     intent.putExtra("login", loginTxt.getText().toString());
                     intent.putExtra("password", passwordTxt.getText().toString());
@@ -52,7 +51,7 @@ public class SignUpPart1Activity extends AppCompatActivity {
                 } else {
                     passwordTxt.setText("");
                     confirmPasswordTxt.setText("");
-                    Toast.makeText(getApplicationContext(), "The entered passwords do not match!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Введенные пароли не совпадают!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -67,5 +66,4 @@ public class SignUpPart1Activity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
     }
-
 }

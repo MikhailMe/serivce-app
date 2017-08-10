@@ -19,20 +19,12 @@ public final class Product {
         this.id = id;
     }
 
-    public int getPrice() {
+    int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public ProductType getType() {
+    ProductType getType() {
         return type;
-    }
-
-    public void setType(ProductType type) {
-        this.type = type;
     }
 
     @Override

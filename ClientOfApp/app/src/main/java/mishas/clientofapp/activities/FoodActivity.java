@@ -1,16 +1,11 @@
 package mishas.clientofapp.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,7 +15,6 @@ import java.util.Arrays;
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.ProductType;
-
 
 public class FoodActivity extends AppCompatActivity {
 

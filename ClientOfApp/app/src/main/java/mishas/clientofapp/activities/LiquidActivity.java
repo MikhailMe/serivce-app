@@ -11,13 +11,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Arrays;
-import java.util.Enumeration;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
-import mishas.clientofapp.logic.Product;
 import mishas.clientofapp.logic.ProductType;
-
 
 public class LiquidActivity extends AppCompatActivity {
 
@@ -25,15 +22,18 @@ public class LiquidActivity extends AppCompatActivity {
     ListView list;
     CustomList adapter;
     String[] currentOrder = {"0", "0", "0", "0", "0", "0", "0", "0"};
+
     String[] web = {
             "Чай - 100 руб",
             "Кофе - 150 руб",
             "Вода - 100 руб",
             "Сок - 120 руб"
     };
+
     ProductType[] type =
             {ProductType.HOT_DOG, ProductType.HOT_CORN, ProductType.HAMBURGER, ProductType.CHIPS,
             ProductType.TEA, ProductType.COFFEE, ProductType.WATER, ProductType.JUICE};
+
     Integer[] imageId = {
             R.mipmap.tea,
             R.mipmap.coffee,
@@ -97,6 +97,5 @@ public class LiquidActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

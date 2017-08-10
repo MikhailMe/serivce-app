@@ -34,13 +34,13 @@ public class RecoveryPasswordActivity extends AppCompatActivity {
         send.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if true we generate new password right away
+                // если email существует, то отправляем на него новый пароль
                 if (Administrator.isExist(email.getText().toString())) {
-                    startActivity(new Intent(RecoveryPasswordActivity.this, SignInActivity.class));
-                    Toast.makeText(getApplicationContext(), "We sent to your email new password", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RecoveryPasswordActivity.this, StartingActivity.class));
+                    Toast.makeText(getApplicationContext(), "На ваш email отправлен новый пароль", Toast.LENGTH_LONG).show();
                 } else {
                     email.setText("");
-                    Toast.makeText(getApplicationContext(), "Sorry, but entered email does not exist", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Введенный email не зарегистрирован в системе", Toast.LENGTH_LONG).show();
                 }
             }
         });

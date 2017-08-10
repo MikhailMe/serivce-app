@@ -7,15 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import mishas.clientofapp.R;
-
-/**
- * Created by 809279 on 01.08.2017.
- */
 
 public class EventCustomList extends ArrayAdapter<String> {
 
@@ -23,19 +18,21 @@ public class EventCustomList extends ArrayAdapter<String> {
     private final String[] web;
     private final String[] web_def;
     private final Integer[] imageId;
+
     public EventCustomList(Activity context,
-                      String[] web, String[] web_def, Integer[] imageId) {
+                           String[] web, String[] web_def, Integer[] imageId) {
         super(context, R.layout.my_custom_list, web);
         this.context = context;
         this.web = web;
         this.imageId = imageId;
         this.web_def = web_def;
     }
+
     @NonNull
     @Override
     public View getView(final int position, final View view, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView= inflater.inflate(R.layout.my_event_custom_list, null, true);
+        View rowView = inflater.inflate(R.layout.my_event_custom_list, null, true);
         final TextView txtTitle = (TextView) rowView.findViewById(R.id.item_name);
         txtTitle.setTextSize(14);
         final TextView textView = (TextView) rowView.findViewById(R.id.item_def);
@@ -55,5 +52,4 @@ public class EventCustomList extends ArrayAdapter<String> {
         imageView.setImageResource(imageId[position]);
         return rowView;
     }
-
 }

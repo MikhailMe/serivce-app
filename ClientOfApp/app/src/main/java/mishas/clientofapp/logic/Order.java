@@ -41,7 +41,7 @@ public final class Order {
 
     public String getOrderString() {
         if (products.isEmpty()){
-            return "Sorry, but your bag is empty! :(";
+            return "Ваша корзина пуста! :(";
         } else{
             StringBuilder sb = new StringBuilder();
             Product curProduct;
@@ -58,27 +58,6 @@ public final class Order {
         }
     }
 
-
-    /*
-
-     //FOOD
-    HOT_DOG,
-    CHEESEBURGER,
-    HAMBURGER,
-    HOT_CORN,
-
-    //DRINKS
-    COLD_BEER,
-    COCA_COLA,
-    WATER,
-    STEEL_WATER,
-
-    //SPORT_GOODS
-    SCARF,
-    BALL,
-    T_SHIRT
-
-    */
     public String makeSendString() {
         if (products.isEmpty())
             return null;

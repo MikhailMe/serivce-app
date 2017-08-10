@@ -9,7 +9,27 @@ import java.util.Random;
 // данный класс заменяет совокупность бд - в будущем всё будет реализовано через бд и этот класс будет удалён
 public final class Administrator {
 
-    public Administrator() {
+    private static volatile Administrator admin = null;
+
+    public static Administrator getAdmin() {
+        if (admin == null) {
+            synchronized (Administrator.class) {
+                if (admin == null)
+                    admin = new Administrator();
+            }
+        }
+        return admin;
+    }
+
+    public static Map<ProductType, Integer> products;
+    public static Map<ProductType, Integer> prices;
+    public static List<User> users;
+    public static List<BankCard> cards;
+    public static User currentUser;
+    public static Order currentOrder;
+    public static long currentUserId = 5;
+
+    private Administrator() {
         products = new HashMap<>();
         prices = new HashMap<>();
         users = new ArrayList<>();
@@ -19,13 +39,6 @@ public final class Administrator {
         addSomeUsers();
         addBankCardsForUsers();
     }
-
-    public static Map<ProductType, Integer> products;
-    public static Map<ProductType, Integer> prices;
-    public static List<User> users;
-    public static List<BankCard> cards;
-    public static User currentUser;
-    public static Order currentOrder;
 
     private static String generatePassword() {
         StringBuilder sb = new StringBuilder();
@@ -52,10 +65,10 @@ public final class Administrator {
         int amount, price;
         for (Map.Entry<ProductType, Integer> prod : products.entrySet()) {
             amount = prod.getValue();
-            if (amount != 0){
+            if (amount != 0) {
                 type = prod.getKey();
                 price = prices.get(type);
-                order.put(new Product(type, price),amount);
+                order.put(new Product(type, price), amount);
             }
         }
         return order;
@@ -68,18 +81,14 @@ public final class Administrator {
     * */
 
     private static Map<ProductType, Integer> prices() {
-        prices.put(ProductType.HOT_DOG, 250);
-        prices.put(ProductType.HAMBURGER, 250);
-        prices.put(ProductType.HOT_CORN, 150);
+        prices.put(ProductType.HOT_DOG, 100);
+        prices.put(ProductType.HAMBURGER, 150);
+        prices.put(ProductType.HOT_CORN, 50);
         prices.put(ProductType.CHIPS, 100);
-        prices.put(ProductType.TEA, 150);
+        prices.put(ProductType.TEA, 100);
         prices.put(ProductType.COFFEE, 150);
         prices.put(ProductType.WATER, 100);
-        prices.put(ProductType.JUICE, 150);
-        prices.put(ProductType.BALL, 500);
-        prices.put(ProductType.T_SHIRT, 500);
-        prices.put(ProductType.MAGNET, 100);
-        prices.put(ProductType.FLAG, 250);
+        prices.put(ProductType.JUICE, 120);
         return prices;
     }
 
@@ -92,18 +101,14 @@ public final class Administrator {
         products.put(ProductType.COFFEE, 0);
         products.put(ProductType.WATER, 0);
         products.put(ProductType.JUICE, 0);
-        products.put(ProductType.BALL, 0);
-        products.put(ProductType.T_SHIRT, 0);
-        products.put(ProductType.MAGNET, 0);
-        products.put(ProductType.FLAG, 0);
     }
 
     private static void addSomeUsers() {
-        users.add(new User(0L, "misha", "123", "misha@mail.ru", "Mikhail", "Medvedev", 10, "89818542622", true));
-        users.add(new User(1L, "andr", "456", "adnr@mail.ru", "Andrey", "Chugunov", 10, "89812345433", true));
-        users.add(new User(2L, "alex", "789", "alex@mail.ru", "Alex", "Xela", 80, "89523134562", true));
-        users.add(new User(3L, "john", "012", "johb@mail.ru", "John", "Nhoj", 40, "89819874561", true));
-        users.add(new User(4L, "qwerty", "345", "asd@mail.ru", "QWERTY", "YTREWQ", 50, "89812135269", true));
+        users.add(new User(0L, "misha", "123", "misha@mail.ru", true));
+        users.add(new User(1L, "andr", "456", "adnr@mail.ru", true));
+        users.add(new User(2L, "alex", "789", "alex@mail.ru", true));
+        users.add(new User(3L, "john", "012", "johb@mail.ru", true));
+        users.add(new User(4L, "qwerty", "345", "asd@mail.ru", true));
     }
 
     private static void addBankCardsForUsers() {

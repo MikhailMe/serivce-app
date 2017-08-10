@@ -7,18 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
-import mishas.clientofapp.logic.Product;
-import mishas.clientofapp.logic.ProductType;
 
 
 public class BagActivity extends AppCompatActivity {
@@ -41,7 +34,7 @@ public class BagActivity extends AppCompatActivity {
         init();
         Administrator.currentOrder.setProducts(Administrator.productsToOrder());
         String print = Administrator.currentOrder.getOrderString();
-        if ("Sorry, but your bag is empty! :(".equals(print))
+        if ("Ваша корзина пуста! :(".equals(print))
             timeToPay.setEnabled(false);
         text.setText(print);
         timeToPay.setOnClickListener(new OnClickListener() {
@@ -66,6 +59,4 @@ public class BagActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
     }
-
-
 }

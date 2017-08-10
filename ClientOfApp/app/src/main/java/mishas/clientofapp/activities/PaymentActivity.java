@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -34,8 +33,9 @@ public class PaymentActivity extends AppCompatActivity {
         yearCard = (EditText) findViewById(R.id._yearOfCard);
         holderCard = (EditText) findViewById(R.id._holderCard);
         ccvCard = (EditText) findViewById(R.id._ccvTxt);
-
         pay = (LinearLayout) findViewById(R.id.pay);
+
+        // FIXME
         card = Administrator.cards.get(0);
     }
 
@@ -65,11 +65,10 @@ public class PaymentActivity extends AppCompatActivity {
                         yearCard.getText().toString().equals("") ||
                         holderCard.getText().toString().equals("") ||
                         ccvCard.getText().toString().equals(""))
-                    Toast.makeText(getApplicationContext(), "Please fill in all the fields of the card!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
                         startActivity(new Intent(PaymentActivity.this, ChoiceShopActivity.class));
-                        Toast.makeText(getApplicationContext(), "Заказ успешно опалчен!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

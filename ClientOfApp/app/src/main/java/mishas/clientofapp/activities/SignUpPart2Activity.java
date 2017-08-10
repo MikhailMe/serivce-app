@@ -1,50 +1,77 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import mishas.clientofapp.R;
+import mishas.clientofapp.logic.Administrator;
+import mishas.clientofapp.logic.BankCard;
+import mishas.clientofapp.logic.User;
 
-public class SignUpPart2Activity extends AppCompatActivity{
+public class SignUpPart2Activity extends AppCompatActivity implements OnClickListener {
 
-    private EditText nameTxt;
-    private EditText surnameTxt;
-    private EditText ageTxt;
-    private EditText telephoneTxt;
-    private Button signUp2;
+    private EditText numberCard;
+    private EditText monthCard;
+    private EditText yearCard;
+    private EditText holderCard;
+    private EditText ccvCard;
 
-    private void init(){
-        nameTxt = (EditText) findViewById(R.id.nameTxtUp);
-        surnameTxt = (EditText) findViewById(R.id.surnameTxtUp);
-        ageTxt = (EditText) findViewById(R.id.ageTxtUp);
-        telephoneTxt = (EditText) findViewById(R.id.telephoneTxtUp);
-        signUp2 = (Button) findViewById(R.id.letsSignUp2);
+    private Button addCard;
+    private Button skip;
+
+    private User _user;
+
+    private void init() {
+        numberCard = (EditText) findViewById(R.id.numberOfCard);
+        monthCard = (EditText) findViewById(R.id.monthOfCard);
+        yearCard = (EditText) findViewById(R.id.yearOfCard);
+        holderCard = (EditText) findViewById(R.id.holderCard);
+        ccvCard = (EditText) findViewById(R.id.ccvTxt);
+        addCard = (Button) findViewById(R.id.addCard);
+        skip = (Button) findViewById(R.id.skip);
+    }
+
+    private void createUser(boolean hasCard) {
+        _user = new User(getIntent().getLongExtra("id", Administrator.currentUserId),
+                getIntent().getStringExtra("login"),
+                getIntent().getStringExtra("password"),
+                getIntent().getStringExtra("email"),
+                hasCard);
+        Administrator.currentUserId++;
+    }
+
+    private void setUser() {
+        // добавляем админу юзверя (бд)
+        Administrator.users.add(_user);
+
+        // установили текущего юзверя
+        Administrator.currentUser = _user;
+
+        // выводим данные о юзвере в лог
+        Log.d("USER_DATA:   ", "login: " + _user.getLogin() + "|   password: " + _user.getPassword());
+
+        // переходим на стартовую активити
+        startActivity(new Intent(SignUpPart2Activity.this, StartingActivity.class));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_part2);
+        setContentView(R.layout.activity_sign_up_part3);
+        setTitle("Карта");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         init();
-        signUp2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpPart2Activity.this, SignUpPart3Activity.class);
-                intent.putExtra("id", getIntent().getLongExtra("id", 0L));
-                intent.putExtra("login", getIntent().getStringExtra("login"));
-                intent.putExtra("password", getIntent().getStringExtra("password"));
-                intent.putExtra("email", getIntent().getStringExtra("email"));
-                intent.putExtra("name", nameTxt.getText().toString());
-                intent.putExtra("surname", surnameTxt.getText().toString());
-                intent.putExtra("age", Integer.parseInt(ageTxt.getText().toString()));
-                intent.putExtra("telephone", telephoneTxt.getText().toString());
-                startActivity(intent);
-            }
-        });
+        addCard.setOnClickListener(this);
+        skip.setOnClickListener(this);
     }
 
     @Override
@@ -57,4 +84,38 @@ public class SignUpPart2Activity extends AppCompatActivity{
         super.onRestoreInstanceState(savedInstanceState);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.addCard: {
+                if (numberCard.getText().length() == 0 ||
+                        monthCard.getText().length() == 0 ||
+                        yearCard.getText().length() == 0 ||
+                        holderCard.getText().length() == 0 ||
+                        ccvCard.getText().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // добавляем карту в epic database
+                    Administrator.cards.add(new BankCard(_user.getId(),
+                            numberCard.getText().toString(),
+                            Integer.parseInt(monthCard.getText().toString()),
+                            Integer.parseInt(yearCard.getText().toString()),
+                            holderCard.getText().toString(),
+                            Integer.parseInt(ccvCard.getText().toString())));
+
+                    // создаем юзверя, true - карта есть
+                    createUser(true);
+                    // кидаем юзверя админу
+                    setUser();
+                }
+                break;
+            }
+            case R.id.skip:
+                // создаем юзверя, false - карта нет
+                createUser(false);
+                // кидаем юзверя админу
+                setUser();
+                break;
+        }
+    }
 }

@@ -41,7 +41,6 @@ public class BagActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BagActivity.this, ChoiceShopActivity.class));
-                //startActivity(new Intent(BagActivity.this, PaymentActivity.class));
             }
         });
     }

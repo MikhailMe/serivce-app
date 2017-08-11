@@ -36,18 +36,18 @@ public class PaymentActivity extends AppCompatActivity {
         holderCard = (EditText) findViewById(R.id._holderCard);
         ccvCard = (EditText) findViewById(R.id._ccvTxt);
         pay = (LinearLayout) findViewById(R.id.pay);
-
-        // FIXME
-        card = Administrator.cards.get(0);
     }
 
     private void ifHasCard() {
-        if (Administrator.currentUser.HasCard()) {
+        if (Administrator.currentUser.hasCard()) {
+            card = Administrator.cards.get(Integer.parseInt(Administrator.currentUser.getId().toString()));
             numberCard.setText(String.valueOf(card.getNumber()));
             monthCard.setText(String.valueOf(card.getMonth()));
             yearCard.setText(String.valueOf(card.getYear()));
             holderCard.setText(String.valueOf(card.getName()));
             ccvCard.setText(String.valueOf(card.getCcv()));
+        } else {
+            Toast.makeText(getApplicationContext(), "Заполните информацию о карте для оплаты!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -70,8 +70,6 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
-
-
                         Client client = new Client("192.168.137.131", 11100);
                         client.sendRequest(Administrator.currentOrder.makeSendString());
                         Toast textToast = Toast.makeText(PaymentActivity.this,
@@ -82,7 +80,6 @@ public class PaymentActivity extends AppCompatActivity {
                         Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
                         intent.putExtra("from", "shop");
                         startActivity(intent);
-
                     }
                 }
             }

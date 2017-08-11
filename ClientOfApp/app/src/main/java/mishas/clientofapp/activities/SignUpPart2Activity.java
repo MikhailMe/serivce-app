@@ -112,6 +112,10 @@ public class SignUpPart2Activity extends AppCompatActivity implements OnClickLis
                 break;
             }
             case R.id.skip:
+
+                // макет карты, чтобы не сбивалась индексация
+                Administrator.cards.add(new BankCard(-1, "", -1, -1, "", -1));
+
                 // создаем юзверя, false - карта нет
                 createUser(false);
                 // кидаем юзверя админу

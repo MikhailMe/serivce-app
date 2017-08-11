@@ -26,7 +26,7 @@ public final class User implements Serializable{
         this.hasCard = hasCard;
     }
 
-    public boolean HasCard() {
+    public boolean hasCard() {
         return hasCard;
     }
 

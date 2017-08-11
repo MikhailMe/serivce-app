@@ -11,9 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.Random;
 
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
@@ -92,11 +89,14 @@ public class MainScreenActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
+                startActivity(new Intent(this, ProfileActivity.class));
                 break;
             case R.id.my_order:
-                Toast.makeText(getApplicationContext(), "Номер вашего заказа: " + new Random().nextInt(100), Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, MyOrderActivity.class));
+                //Toast.makeText(getApplicationContext(), "Номер вашего заказа: " + new Random().nextInt(100), Toast.LENGTH_LONG).show();
                 break;
             case R.id.payment_methods:
+                startActivity(new Intent(this, PaymentMethodsActivity.class));
                 break;
             case R.id.exit:
                 startActivity(new Intent(this, StartingActivity.class));

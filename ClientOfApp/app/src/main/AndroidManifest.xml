@@ -33,8 +33,9 @@
         <activity android:name=".activities.PaymentActivity"/>
         <activity android:name=".activities.RecoveryPasswordActivity"/>
         <activity android:name=".activities.ChoiceShopActivity"/>
-        <activity android:name=".activities.MyOrderActivity">
-        </activity>
+        <activity android:name=".activities.MyOrderActivity"/>
+        <activity android:name=".activities.ProfileActivity"/>
+        <activity android:name=".activities.PaymentMethodsActivity"/>
     </application>
 
 </manifest>

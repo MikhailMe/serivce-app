@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import mishas.clientofapp.R;
-import mishas.clientofapp.logic.Administrator;
-import mishas.clientofapp.logic.Client;
 
 public class ChoiceShopActivity extends AppCompatActivity {
 
@@ -116,17 +114,8 @@ public class ChoiceShopActivity extends AppCompatActivity {
                 int counter = 0;
                 for (boolean b : button_clicked)
                     if (b) {
-                        Client client = new Client("192.168.137.131", 11100);
-                        client.sendRequest(Administrator.currentOrder.makeSendString());
-                        Toast textToast = Toast.makeText(ChoiceShopActivity.this,
-                                "Заказ отправлен, информацию о заказе Вы сможете найти в пункте меню \"Мой заказ\"",
-                                Toast.LENGTH_LONG);
-                        textToast.setGravity(Gravity.CENTER, 0, 0);
-                        textToast.show();
                         counter++;
-                        Intent intent = new Intent(ChoiceShopActivity.this, MainScreenActivity.class);
-                        intent.putExtra("from", "shop");
-                        startActivity(intent);
+                        startActivity(new Intent(ChoiceShopActivity.this, PaymentActivity.class));
                         break;
                     }
                 if (counter == 0) {
@@ -142,7 +131,7 @@ public class ChoiceShopActivity extends AppCompatActivity {
         back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoiceShopActivity.this, PaymentActivity.class));
+                startActivity(new Intent(ChoiceShopActivity.this, BagActivity.class));
             }
         });
     }

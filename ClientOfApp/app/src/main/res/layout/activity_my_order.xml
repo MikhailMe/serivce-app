@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@android:color/white"
               android:orientation="vertical"
               tools:context="mishas.clientofapp.activities.ChoiceShopActivity">
-
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +31,7 @@
                 android:background="@drawable/round_button"
                 android:text=""
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="183dp" />
+                tools:layout_editor_absoluteY="183dp"/>
 
             <Button
                 android:id="@+id/button4"
@@ -48,7 +46,7 @@
                 android:background="@drawable/main_pink_round_button"
                 android:text=""
                 tools:layout_editor_absoluteX="190dp"
-                tools:layout_editor_absoluteY="143dp" />
+                tools:layout_editor_absoluteY="143dp"/>
 
             <Button
                 android:id="@+id/button3"
@@ -61,7 +59,7 @@
                 android:background="@drawable/main_pink_round_button"
                 android:text=""
                 tools:layout_editor_absoluteX="113dp"
-                tools:layout_editor_absoluteY="327dp" />
+                tools:layout_editor_absoluteY="327dp"/>
 
             <Button
                 android:id="@+id/button5"
@@ -76,7 +74,7 @@
                 android:background="@drawable/main_pink_round_button"
                 android:text=""
                 tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="97dp" />
+                tools:layout_editor_absoluteY="97dp"/>
 
             <Button
                 android:id="@+id/button2"
@@ -91,8 +89,10 @@
                 android:background="@drawable/main_sea_round_button"
                 android:text=""
                 tools:layout_editor_absoluteX="267dp"
-                tools:layout_editor_absoluteY="293dp" />
+                tools:layout_editor_absoluteY="293dp"/>
+
         </RelativeLayout>
+
     </LinearLayout>
 
 

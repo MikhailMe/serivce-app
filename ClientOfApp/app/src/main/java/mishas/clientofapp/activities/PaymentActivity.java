@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import mishas.clientofapp.R;
 import mishas.clientofapp.logic.Administrator;
 import mishas.clientofapp.logic.BankCard;
+import mishas.clientofapp.logic.Client;
 import mishas.clientofapp.logic.Payment;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -68,7 +70,19 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
-                        startActivity(new Intent(PaymentActivity.this, ChoiceShopActivity.class));
+
+
+                        Client client = new Client("192.168.137.131", 11100);
+                        client.sendRequest(Administrator.currentOrder.makeSendString());
+                        Toast textToast = Toast.makeText(PaymentActivity.this,
+                                "Заказ отправлен, информацию о заказе Вы сможете найти в пункте меню \"Мой заказ\"",
+                                Toast.LENGTH_LONG);
+                        textToast.setGravity(Gravity.CENTER, 0, 0);
+                        textToast.show();
+                        Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
+                        intent.putExtra("from", "shop");
+                        startActivity(intent);
+
                     }
                 }
             }

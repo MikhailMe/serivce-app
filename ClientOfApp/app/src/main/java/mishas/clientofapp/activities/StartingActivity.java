@@ -23,6 +23,7 @@ public class StartingActivity extends AppCompatActivity {
     private Button signIn;
     private Button signUp;
     private TextView forgotPassword;
+    private static long back_pressed;
 
     private void init() {
         Administrator.getAdmin();
@@ -81,6 +82,4 @@ public class StartingActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

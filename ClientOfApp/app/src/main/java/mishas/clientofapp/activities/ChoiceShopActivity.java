@@ -27,11 +27,18 @@ public class ChoiceShopActivity extends AppCompatActivity {
     private void init() {
         send = (LinearLayout) findViewById(R.id.sendToServingApp);
         back = (LinearLayout) findViewById(R.id.back_to_card);
+
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
+
+        button.setOnClickListener(myClicker(0));
+        button2.setOnClickListener(myClicker(1));
+        button3.setOnClickListener(myClicker(2));
+        button4.setOnClickListener(myClicker(3));
+        button5.setOnClickListener(myClicker(4));
     }
 
     @Override
@@ -42,72 +49,6 @@ public class ChoiceShopActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         init();
 
-
-        button.setOnClickListener(new OnClickListener() { // Then you should add add click listener for your button.
-            @Override
-            public void onClick(View v) {
-                int counter = 0;
-                for (boolean b : button_clicked) {
-                    if (!b) counter++;
-                }
-                if (counter == 5) {
-                    button_clicked.set(0, true);
-                    v.setBackgroundResource(R.drawable.check);
-                }
-            }
-        });
-        button2.setOnClickListener(new OnClickListener() { // Then you should add add click listener for your button.
-            @Override
-            public void onClick(View v) {
-                int counter = 0;
-                for (boolean b : button_clicked) {
-                    if (!b) counter++;
-                }
-                if (counter == 5) {
-                    button_clicked.set(1, true);
-                    v.setBackgroundResource(R.drawable.check);
-                }
-            }
-        });
-        button3.setOnClickListener(new OnClickListener() { // Then you should add add click listener for your button.
-            @Override
-            public void onClick(View v) {
-                int counter = 0;
-                for (boolean b : button_clicked) {
-                    if (!b) counter++;
-                }
-                if (counter == 5) {
-                    button_clicked.set(2, true);
-                    v.setBackgroundResource(R.drawable.check);
-                }
-            }
-        });
-        button4.setOnClickListener(new OnClickListener() { // Then you should add add click listener for your button.
-            @Override
-            public void onClick(View v) {
-                int counter = 0;
-                for (boolean b : button_clicked) {
-                    if (!b) counter++;
-                }
-                if (counter == 5) {
-                    button_clicked.set(3, true);
-                    v.setBackgroundResource(R.drawable.check);
-                }
-            }
-        });
-        button5.setOnClickListener(new OnClickListener() { // Then you should add add click listener for your button.
-            @Override
-            public void onClick(View v) {
-                int counter = 0;
-                for (boolean b : button_clicked) {
-                    if (!b) counter++;
-                }
-                if (counter == 5) {
-                    button_clicked.set(4, true);
-                    v.setBackgroundResource(R.drawable.check);
-                }
-            }
-        });
         send.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,5 +75,21 @@ public class ChoiceShopActivity extends AppCompatActivity {
                 startActivity(new Intent(ChoiceShopActivity.this, BagActivity.class));
             }
         });
+    }
+
+    private OnClickListener myClicker(final int i) {
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int counter = 0;
+                for (boolean b : button_clicked) {
+                    if (!b) counter++;
+                }
+                if (counter == 5) {
+                    button_clicked.set(i, true);
+                    v.setBackgroundResource(R.drawable.check);
+                }
+            }
+        };
     }
 }

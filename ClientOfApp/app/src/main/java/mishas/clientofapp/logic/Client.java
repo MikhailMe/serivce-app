@@ -1,6 +1,10 @@
 package mishas.clientofapp.logic;
 
+import android.util.Log;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -8,6 +12,7 @@ public class Client {
 
     private String host;
     private int port;
+    private String id = "";
 
     public Client(String host, int port) {
         this.host = host;
@@ -27,16 +32,27 @@ public class Client {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000);
+
                     Socket socket = new Socket(Client.this.host, Client.this.port);
                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                     out.println(message);
-
-                } catch (IOException | InterruptedException e) {
+                    BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    Client.this.id = bf.readLine();
+                    Log.d("id", id);
+                    //Client.this.notify();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }.start();
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

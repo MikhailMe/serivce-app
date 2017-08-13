@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -94,6 +95,9 @@ public class MainScreenActivity extends AppCompatActivity
             case R.id.my_order:
                 Intent intent = new Intent(this, MyOrderActivity.class);
                 intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                if (getIntent().getStringExtra("id") != null)
+                    Log.d("idid", getIntent().getStringExtra("id"));
                 startActivity(intent);
                 break;
             case R.id.payment_methods:

@@ -71,8 +71,13 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
-                        Client client = new Client("192.168.0.101", 11100);
+                        Client client = new Client("192.168.0.98", 11100);
                         client.sendRequest(Administrator.currentOrder.makeSendString());
+//                        try {
+//                            wait();
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
                         Toast textToast = Toast.makeText(PaymentActivity.this,
                                 "Заказ отправлен, информацию о заказе Вы сможете найти в пункте меню \"Мой заказ\"",
                                 Toast.LENGTH_LONG);
@@ -81,6 +86,15 @@ public class PaymentActivity extends AppCompatActivity {
                         Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
                         intent.putExtra("from", "pay");
                         intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
+
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d("idsh", client.getId());
+                        intent.putExtra("id", client.getId());
+
                         startActivity(intent);
                     }
                 }

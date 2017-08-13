@@ -1,10 +1,13 @@
 package mishas.clientofapp.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import mishas.clientofapp.R;
 
@@ -28,9 +31,12 @@ public class MyOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_my_order);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         this.setTitle("Мой заказ");
         init();
         int lastPush = getIntent().getIntExtra("numberOfClick",0);
+        TextView tv = (TextView) findViewById(R.id.orderId);
+        tv.setText("Ваш заказ №" + getIntent().getStringExtra("id"));
         buttons[lastPush].setBackgroundResource(R.drawable.check);
         okey.setOnClickListener(new View.OnClickListener() {
             @Override

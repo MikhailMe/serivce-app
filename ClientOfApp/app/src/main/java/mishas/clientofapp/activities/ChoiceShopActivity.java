@@ -19,26 +19,25 @@ import mishas.clientofapp.R;
 
 public class ChoiceShopActivity extends AppCompatActivity {
 
-    private Button button, button2, button3, button4, button5;
+    private Button[] buttons;
     private LinearLayout send, back;
     private Boolean[] button_click = {false, false, false, false, false};
     private ArrayList<Boolean> button_clicked = new ArrayList<>(Arrays.asList(button_click));
+    private int lastPush;
 
     private void init() {
         send = (LinearLayout) findViewById(R.id.sendToServingApp);
         back = (LinearLayout) findViewById(R.id.back_to_card);
 
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
+        buttons = new Button[5];
+        buttons[0] = (Button) findViewById(R.id.button1);
+        buttons[1] = (Button) findViewById(R.id.button2);
+        buttons[2] = (Button) findViewById(R.id.button3);
+        buttons[3] = (Button) findViewById(R.id.button4);
+        buttons[4] = (Button) findViewById(R.id.button5);
 
-        button.setOnClickListener(myClicker(0));
-        button2.setOnClickListener(myClicker(1));
-        button3.setOnClickListener(myClicker(2));
-        button4.setOnClickListener(myClicker(3));
-        button5.setOnClickListener(myClicker(4));
+        for (int k = 0; k < 5; k++)
+            buttons[k].setOnClickListener(myClicker(k));
     }
 
     @Override
@@ -48,7 +47,6 @@ public class ChoiceShopActivity extends AppCompatActivity {
         setTitle("Выберите магазин");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         init();
-
         send.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +54,9 @@ public class ChoiceShopActivity extends AppCompatActivity {
                 for (boolean b : button_clicked)
                     if (b) {
                         counter++;
-                        startActivity(new Intent(ChoiceShopActivity.this, PaymentActivity.class));
+                        Intent intent = new Intent(ChoiceShopActivity.this, PaymentActivity.class);
+                        intent.putExtra("numberOfClick", lastPush);
+                        startActivity(intent);
                         break;
                     }
                 if (counter == 0) {
@@ -81,6 +81,8 @@ public class ChoiceShopActivity extends AppCompatActivity {
         return new OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttons[lastPush].setBackgroundResource(R.mipmap.circle);
+                button_clicked.set(lastPush, false);
                 int counter = 0;
                 for (boolean b : button_clicked) {
                     if (!b) counter++;
@@ -88,6 +90,7 @@ public class ChoiceShopActivity extends AppCompatActivity {
                 if (counter == 5) {
                     button_clicked.set(i, true);
                     v.setBackgroundResource(R.drawable.check);
+                    lastPush = i;
                 }
             }
         };

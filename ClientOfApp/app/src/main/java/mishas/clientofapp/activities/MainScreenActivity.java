@@ -92,8 +92,9 @@ public class MainScreenActivity extends AppCompatActivity
                 startActivity(new Intent(this, ProfileActivity.class));
                 break;
             case R.id.my_order:
-                startActivity(new Intent(this, MyOrderActivity.class));
-                //Toast.makeText(getApplicationContext(), "Номер вашего заказа: " + new Random().nextInt(100), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, MyOrderActivity.class);
+                intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
+                startActivity(intent);
                 break;
             case R.id.payment_methods:
                 startActivity(new Intent(this, PaymentMethodsActivity.class));

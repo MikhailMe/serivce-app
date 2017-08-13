@@ -23,7 +23,6 @@ public class StartingActivity extends AppCompatActivity {
     private Button signIn;
     private Button signUp;
     private TextView forgotPassword;
-    private static long back_pressed;
 
     private void init() {
         Administrator.getAdmin();
@@ -39,7 +38,7 @@ public class StartingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
-        setTitle("Welcome!");
+        setTitle("Добро пожаловать!");
         init();
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override

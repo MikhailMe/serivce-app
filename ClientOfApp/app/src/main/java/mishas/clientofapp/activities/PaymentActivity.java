@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -70,7 +71,7 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
-                        Client client = new Client("192.168.137.131", 11100);
+                        Client client = new Client("192.168.0.101", 11100);
                         client.sendRequest(Administrator.currentOrder.makeSendString());
                         Toast textToast = Toast.makeText(PaymentActivity.this,
                                 "Заказ отправлен, информацию о заказе Вы сможете найти в пункте меню \"Мой заказ\"",
@@ -78,7 +79,8 @@ public class PaymentActivity extends AppCompatActivity {
                         textToast.setGravity(Gravity.CENTER, 0, 0);
                         textToast.show();
                         Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
-                        intent.putExtra("from", "shop");
+                        intent.putExtra("from", "pay");
+                        intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
                         startActivity(intent);
                     }
                 }

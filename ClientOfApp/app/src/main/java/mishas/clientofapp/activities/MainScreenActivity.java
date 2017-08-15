@@ -22,6 +22,7 @@ public class MainScreenActivity extends AppCompatActivity
 
     ListView list;
     EventCustomList adapter;
+    String currentOrderId = "";
     String[] web = {
             "Матч чемпионата мира по футболу",
             "Белый лебедь в Мариинском театре",
@@ -94,8 +95,9 @@ public class MainScreenActivity extends AppCompatActivity
                 break;
             case R.id.my_order:
                 Intent intent = new Intent(this, MyOrderActivity.class);
-                intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
-                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 10));
+                currentOrderId = getIntent().getStringExtra("id");
+                intent.putExtra("id", currentOrderId);
                 if (getIntent().getStringExtra("id") != null)
                     Log.d("idid", getIntent().getStringExtra("id"));
                 startActivity(intent);

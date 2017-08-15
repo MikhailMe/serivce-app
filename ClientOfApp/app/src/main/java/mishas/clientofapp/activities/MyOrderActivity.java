@@ -15,6 +15,7 @@ public class MyOrderActivity extends AppCompatActivity {
 
     private Button[] buttons;
     private Button okey;
+    private String currentId = "";
 
     private void init() {
         buttons = new Button[5];
@@ -34,14 +35,19 @@ public class MyOrderActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         this.setTitle("Мой заказ");
         init();
-        int lastPush = getIntent().getIntExtra("numberOfClick",0);
+        final int lastPush = getIntent().getIntExtra("numberOfClick", 10);
         TextView tv = (TextView) findViewById(R.id.orderId);
-        tv.setText("Ваш заказ №" + getIntent().getStringExtra("id"));
-        buttons[lastPush].setBackgroundResource(R.drawable.check);
+        currentId = getIntent().getStringExtra("id");
+        if (currentId == null) currentId = "";
+        tv.setText("Ваш заказ №" + currentId);
+        if (lastPush != 10) buttons[lastPush].setBackgroundResource(R.drawable.check);
         okey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyOrderActivity.this, MainScreenActivity.class));
+                Intent intent = new Intent(MyOrderActivity.this, MainScreenActivity.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                intent.putExtra("numberOfClick", lastPush);
+                startActivity(intent);
             }
         });
     }

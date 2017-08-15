@@ -88,7 +88,7 @@ public class PaymentActivity extends AppCompatActivity {
                         intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
 
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

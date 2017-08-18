@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import mishas.clientofapp.R;
@@ -37,6 +38,15 @@ class EventCustomList extends ArrayAdapter<String> {
         txtTitle.setTextSize(14);
         final TextView textView = (TextView) rowView.findViewById(R.id.item_def);
         textView.setTextSize(12);
+        LinearLayout elemLayout = (LinearLayout) rowView.findViewById(R.id.elemOfList);
+        elemLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, FoodActivity.class);
+                intent.putExtra("from", "main");
+                context.startActivity(intent);
+            }
+        });
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         ImageView next = (ImageView) rowView.findViewById(R.id.continue_button);
         next.setOnClickListener(new View.OnClickListener() {

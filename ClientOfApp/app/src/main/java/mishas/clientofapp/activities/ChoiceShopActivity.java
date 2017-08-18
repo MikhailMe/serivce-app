@@ -56,6 +56,7 @@ public class ChoiceShopActivity extends AppCompatActivity {
                         counter++;
                         Intent intent = new Intent(ChoiceShopActivity.this, PaymentActivity.class);
                         intent.putExtra("numberOfClick", lastPush);
+                        intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
                         startActivity(intent);
                         break;
                     }

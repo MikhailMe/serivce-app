@@ -86,6 +86,7 @@ public class PaymentActivity extends AppCompatActivity {
                         Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
                         intent.putExtra("from", "pay");
                         intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
+                        intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
 
                         try {
                             Thread.sleep(500);

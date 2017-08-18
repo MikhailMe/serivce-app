@@ -38,7 +38,7 @@ public class BagActivity extends AppCompatActivity {
         this.setTitle("Корзина");
         init();
         Administrator.currentOrder.setProducts(Administrator.productsToOrder());
-        String print = Administrator.currentOrder.getOrderString();
+        final String print = Administrator.currentOrder.getOrderString();
         if ("Ваша корзина пуста! :(".equals(print))
             timeToPay.setEnabled(false);
         text.setText(print);
@@ -58,7 +58,9 @@ public class BagActivity extends AppCompatActivity {
         timeToPay.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BagActivity.this, ChoiceShopActivity.class));
+                Intent intent = new Intent(BagActivity.this, ChoiceShopActivity.class);
+                intent.putExtra("orderString", print);
+                startActivity(intent);
             }
         });
     }

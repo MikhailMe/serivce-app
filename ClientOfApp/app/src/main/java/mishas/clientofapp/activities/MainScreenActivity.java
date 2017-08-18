@@ -96,6 +96,7 @@ public class MainScreenActivity extends AppCompatActivity
             case R.id.my_order:
                 Intent intent = new Intent(this, MyOrderActivity.class);
                 intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 10));
+                intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
                 currentOrderId = getIntent().getStringExtra("id");
                 intent.putExtra("id", currentOrderId);
                 if (getIntent().getStringExtra("id") != null)

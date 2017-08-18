@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/button_back">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:background="@drawable/zenit">
 
             <Button
@@ -98,25 +98,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/button_back">
 
-        <Space
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1" />
-
+            android:layout_height="120dp"
+            android:id="@+id/currentOrder"
+            android:layout_weight="1"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="top|center_horizontal"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:id="@+id/orderId"
-            android:layout_weight="1"
-            android:text="Пока ничего не заказано" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_back"
+            android:id="@+id/summary"
+            android:text="Пока ничего не зказано"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"/>
+
+
     </LinearLayout>
 
     <LinearLayout

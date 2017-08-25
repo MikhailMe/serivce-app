@@ -16,6 +16,8 @@ import java.net.ServerSocket
 import servingclient.servingclient.Core.Capitalizer
 import android.net.wifi.WifiManager
 import android.text.format.Formatter
+import java.io.PrintWriter
+import java.net.Socket
 
 
 class MainActivity : AppCompatActivity() {
@@ -103,6 +105,14 @@ class MainActivity : AppCompatActivity() {
             if (currentlyOpenView != null) {
                 ordersList.remove(ordersList.first { it.split("№")[1].toLong() == currentOrderId })
                 shop.getOrders()?.remove(shop.getOrders()?.first { it.id == currentOrderId })
+                //val client = Client("192.168.0.98", 11100)
+                //client.sendRequest("type2[order#$currentOrderId, true]")
+                Thread() {
+                    val socket = Socket("192.168.0.98", 11100)
+                    val pw = PrintWriter(socket.getOutputStream())
+                    pw.println("type2[order#$currentOrderId, true]")
+                    pw.flush()
+                }.start()
                 list.clear()
                 currentlyOpenView?.setBackgroundColor(Color.parseColor(BACKGROUND_COLOR))
                 adapter?.notifyDataSetChanged()

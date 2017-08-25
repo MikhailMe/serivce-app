@@ -72,7 +72,7 @@ public class PaymentActivity extends AppCompatActivity {
                 else {
                     if (Payment.isPaid()) {
                         Client client = new Client("192.168.0.98", 11100);
-                        client.sendRequest(Administrator.currentOrder.makeSendString());
+                        client.sendRequest("type1" + Administrator.currentOrder.makeSendString());
 //                        try {
 //                            wait();
 //                        } catch (InterruptedException e) {

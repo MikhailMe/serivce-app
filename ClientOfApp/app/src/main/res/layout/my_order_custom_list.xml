@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/list_item_layout">
+
+
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:id="@+id/elemOfList"
+        android:layout_height="70dp">
+        <ImageView
+            android:id="@+id/icon_of_order"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp">
+        </ImageView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/item_name_of_order"
+                android:layout_height="match_parent"
+                android:gravity="center|center_horizontal"
+                android:textColor="@android:color/black"
+                android:layout_weight="0.5">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

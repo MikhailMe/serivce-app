@@ -30,7 +30,16 @@ public class MyOrderActivity extends AppCompatActivity {
     private Button[] buttons;
     private Button okey;
     private String currentId = "";
-
+    Integer[] imageId = {
+            R.mipmap.hotdog,
+            R.mipmap.hotcorn,
+            R.mipmap.burger,
+            R.mipmap.chips,
+            R.mipmap.tea,
+            R.mipmap.coffee,
+            R.mipmap.water,
+            R.mipmap.juice,
+    };
     private void init() {
         buttons = new Button[5];
         buttons[0] = (Button) findViewById(R.id.button_1);
@@ -77,7 +86,7 @@ public class MyOrderActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (lastPush != 10) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, text);
+                MyOrderCustomList adapter = new MyOrderCustomList(this, (String[]) text.toArray(), imageId);
                 currentOrder.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -86,7 +95,7 @@ public class MyOrderActivity extends AppCompatActivity {
                 String str = getIntent().getStringExtra("orderString");
                 String[] splString = Arrays.copyOf(str.split("\n"), str.split("\n").length - 2);
                 Log.d("yoi", Arrays.toString(splString));
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, splString);
+                MyOrderCustomList adapter = new MyOrderCustomList(this, splString, imageId);
                 currentOrder.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 String[] splitted = str.split("\n");

@@ -218,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Оплата"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="15dp"
             android:gravity="left|center"/>
     </LinearLayout>

@@ -2,8 +2,12 @@ package mishas.clientofapp.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -59,6 +63,7 @@ public class FoodActivity extends AppCompatActivity {
         list = (ListView)findViewById(R.id.list_view);
         list.setAdapter(adapter);
         ImageView iv = (ImageView) findViewById(R.id.cart_image);
+
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

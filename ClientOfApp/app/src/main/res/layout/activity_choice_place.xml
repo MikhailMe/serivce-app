@@ -110,7 +110,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="55dp"
                 android:layout_marginStart="55dp"
-                android:background="@drawable/back_icon" />
+                android:background="@drawable/icon_arrow_left" />
         </LinearLayout>
 
         <LinearLayout
@@ -125,7 +125,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="55dp"
                 android:layout_marginStart="55dp"
-                android:background="@drawable/next" />
+                android:background="@drawable/icon_right" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

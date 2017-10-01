@@ -72,7 +72,7 @@ public class MainScreenActivity extends AppCompatActivity
                     @Override
                     public void run() {
                         try {
-                            Socket socket = new Socket("192.168.0.98", 11100);
+                            Socket socket = new Socket("192.168.137.134", 11100);
                             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                             out.println("type3#" + getIntent().getStringExtra("id"));
                             BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));

@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                 //val client = Client("192.168.0.98", 11100)
                 //client.sendRequest("type2[order#$currentOrderId, true]")
                 Thread() {
-                    val socket = Socket("192.168.0.98", 11100)
+                    val socket = Socket("192.168.137.134", 11100)
                     val pw = PrintWriter(socket.getOutputStream())
                     pw.println("type2[order#$currentOrderId, true]")
                     pw.flush()

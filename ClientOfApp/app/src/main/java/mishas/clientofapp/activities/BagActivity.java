@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -37,6 +38,10 @@ public class BagActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#168de2")));
         this.setTitle("Корзина");
         init();
+        if (Administrator.products == null) {
+            Log.d("AAAAAAAAAAAAAAA", "pizda");
+            System.exit(-1);
+        }
         Administrator.currentOrder.setProducts(Administrator.productsToOrder());
         final String print = Administrator.currentOrder.getOrderString();
         if ("Ваша корзина пуста! :(".equals(print))
@@ -58,7 +63,7 @@ public class BagActivity extends AppCompatActivity {
         timeToPay.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BagActivity.this, ChoiceShopActivity.class);
+                Intent intent = new Intent(BagActivity.this, ChooseShopActivity.class);
                 intent.putExtra("orderString", print);
                 startActivity(intent);
             }

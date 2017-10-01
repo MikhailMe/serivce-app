@@ -71,7 +71,7 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (Payment.isPaid()) {
-                        Client client = new Client("192.168.0.98", 11100);
+                        Client client = new Client("192.168.137.134", 11100);
                         client.sendRequest("type1" + Administrator.currentOrder.makeSendString());
 //                        try {
 //                            wait();

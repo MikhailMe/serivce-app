@@ -149,8 +149,9 @@ public class MainScreenActivity extends AppCompatActivity
                 break;
             case R.id.my_order:
                 Intent intent = new Intent(this, MyOrderActivity.class);
-                intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 10));
+                intent.putExtra("place", getIntent().getStringExtra("place"));
                 intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
+                Log.d("AAAAAAAAAAAAa", getIntent().getStringExtra("orderString"));
                 currentOrderId = getIntent().getStringExtra("id");
                 intent.putExtra("id", currentOrderId);
                 if (getIntent().getStringExtra("id") != null)

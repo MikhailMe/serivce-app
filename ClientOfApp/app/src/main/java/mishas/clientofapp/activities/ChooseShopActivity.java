@@ -29,7 +29,7 @@ public class ChooseShopActivity extends AppCompatActivity {
 
 
     private LinearLayout send, back;
-    String selectedShop;
+    String selectedShop = "";
     String mySector = "201";
     String myRow = "1";
     String myPlace = "1";
@@ -84,25 +84,19 @@ public class ChooseShopActivity extends AppCompatActivity {
         myShopsCustomList = new MyShopsCustomList(this, metersToShop, imageTime);
         listFunc();
         listView.setAdapter(myShopsCustomList);
-        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedShop= metersToShop.get(position);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedShop = metersToShop.get(position);
                 Log.d("AAAAAAA", "AAAAAAAAAAAAAAA");
                 for(int i = 0; i < metersToShop.size(); i++) {
                     listView.getChildAt(i).setBackgroundColor(Color.WHITE);
                     TextView tv = (TextView)listView.getChildAt(i).findViewById(R.id.item_name_of_order);
-                    tv.setTextColor(Color.GRAY);
+                    tv.setTextColor(Color.BLACK);
                 }
                 TextView tv = (TextView)view.findViewById(R.id.item_name_of_order);
                 tv.setTextColor(Color.WHITE);
                 view.setBackgroundColor(Color.parseColor("#168de2"));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         sectorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -148,7 +142,10 @@ public class ChooseShopActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ChooseShopActivity.this, PaymentActivity.class);
+                intent.putExtra("place", mySector + "_" + myRow + "_" + myPlace + "_" + selectedShop);
+                intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
+                startActivity(intent);
             }
         });
 

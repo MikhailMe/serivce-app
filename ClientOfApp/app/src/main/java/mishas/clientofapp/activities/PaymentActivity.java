@@ -85,9 +85,9 @@ public class PaymentActivity extends AppCompatActivity {
                         textToast.show();
                         Intent intent = new Intent(PaymentActivity.this, MainScreenActivity.class);
                         intent.putExtra("from", "pay");
-                        intent.putExtra("numberOfClick", getIntent().getIntExtra("numberOfClick", 0));
+                        intent.putExtra("place", getIntent().getStringExtra("place"));
                         intent.putExtra("orderString", getIntent().getStringExtra("orderString"));
-
+                        Log.d("assdasdad", getIntent().getStringExtra("place"));
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException e) {
